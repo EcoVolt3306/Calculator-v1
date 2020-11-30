@@ -111,7 +111,7 @@ namespace Calculator_wf
             label2.Text = operand2;
             label3.Text = operand3;
             label4.Text = operator1.ToString();
-            label4.Text = operator2.ToString();
+            label5.Text = operator2.ToString();
         }
 
         private void buttonMinus_Click(object sender, EventArgs e)
@@ -142,7 +142,7 @@ namespace Calculator_wf
             label2.Text = operand2;
             label3.Text = operand3;
             label4.Text = operator1.ToString();
-            label4.Text = operator2.ToString();
+            label5.Text = operator2.ToString();
         }
 
         private void buttonDivision_Click(object sender, EventArgs e)
@@ -172,7 +172,8 @@ namespace Calculator_wf
             label1.Text = null;
             label2.Text = null;
             label3.Text = null;
-
+            label4.Text = operator1.ToString();
+            label5.Text = operator2.ToString();
 
         }
 
@@ -246,7 +247,7 @@ namespace Calculator_wf
                 label2.Text = operand2;
                 label3.Text = operand3;
                 label4.Text = operator1.ToString();
-                label4.Text = operator2.ToString();
+                label5.Text = operator2.ToString();
             }
 
         }
