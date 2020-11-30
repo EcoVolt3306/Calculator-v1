@@ -6,11 +6,11 @@ namespace Calculator_wf
     public partial class Frame : Form
     {
         // 연산자는 1:덧셈, 2:뺄셈, 3:곱셈, 4:나눗셈으로 정의
-        string operator1, operator2 = null;   // 연산자
+        int operator1, operator2;   // 연산자
         string operand1, operand2, operand3 = null;    // 피연산자
         string temp;    // 임시
-
         double Result;
+
 
         public Frame()
         {
@@ -91,9 +91,11 @@ namespace Calculator_wf
             if (operand1 == null)
             {
                 operand1 = temp;        // 피연산자1에 값을 저장
+                operator1 = 1;          // 1==Add
             } else if (operand2 == null)
             {
                 operand2 = temp;        // 피연산자2에 값을 저장
+                operator2 = 1;          // 1==Add
             } else if (operand3 == null)
             {
                 operand3 = temp;        // 피연산자1에 값을 저장
@@ -108,11 +110,39 @@ namespace Calculator_wf
             label1.Text = operand1;
             label2.Text = operand2;
             label3.Text = operand3;
+            label4.Text = operator1.ToString();
+            label4.Text = operator2.ToString();
         }
 
         private void buttonMinus_Click(object sender, EventArgs e)
         {
+            // 뺄셈 버튼 기능
+            if (operand1 == null)
+            {
+                operand1 = temp;        // 피연산자1에 값을 저장
+                operator1 = 2;          // 2==Minus
+            }
+            else if (operand2 == null)
+            {
+                operand2 = temp;        // 피연산자2에 값을 저장
+                operator1 = 2;        // 2==Minus
+            }
+            else if (operand3 == null)
+            {
+                operand3 = temp;        // 피연산자1에 값을 저장
+            }
 
+
+            temp += "-";               // temp에 + 기호 추가
+            txtExp.Text += temp;    // 수식값에 temp값 추가
+            temp = null;                  // temp 초기화
+
+            // 디버깅
+            label1.Text = operand1;
+            label2.Text = operand2;
+            label3.Text = operand3;
+            label4.Text = operator1.ToString();
+            label4.Text = operator2.ToString();
         }
 
         private void buttonDivision_Click(object sender, EventArgs e)
@@ -134,11 +164,15 @@ namespace Calculator_wf
             operand1 = null;
             operand2 = null;
             operand3 = null;
+            operator1 = 0;
+            operator2 = 0;
+
 
             // 디버깅
             label1.Text = null;
             label2.Text = null;
             label3.Text = null;
+
 
         }
 
@@ -146,6 +180,7 @@ namespace Calculator_wf
         {
             // Result : 최종 합산
 
+            // 마지막 피식별자 입력
             if (temp != null)
             {
                 if(operand1 == null)
@@ -160,23 +195,58 @@ namespace Calculator_wf
                 }
             }
 
+            // 첫번째 연산자 조건문
+            if (operator1 == 1){
+                Result = double.Parse(operand1) + double.Parse(operand2);
+            } else if(operator1 == 2)
+            {
+                Result = double.Parse(operand1) - double.Parse(operand2);
+            } else if(operator1 == 3)
+            {
+                Result = double.Parse(operand1) * double.Parse(operand2);
+            } else if (operator1 == 4)
+            {
+                Result = double.Parse(operand1) / double.Parse(operand2);
+            }
 
+            // 두번째 연산자 조건문
+            if (operator2 == 1)
+            {
+                Result += double.Parse(operand3);
+            } else if (operator2 == 2)
+            {
+                Result -= double.Parse(operand3);
+            }
+            else if (operator2 == 3)
+            {
+                Result *= double.Parse(operand3);
+            }
+            else if (operator2 == 4)
+            {
+                Result /= double.Parse(operand3);
+            }
 
-            // 디버깅
-            label1.Text = operand1;
-            label2.Text = operand2;
-            label3.Text = operand3;
-
-            if (operand3 != null)
+            // 피연산자 수의 따른 연산
+            if (operand3 != null)   // 3 존재의 경우
             {
                 txtExp.Text += operand3 + "=";
-                Result = double.Parse(operand1) + double.Parse(operand2) + double.Parse(operand3);
+                //Result = double.Parse(operand1) + double.Parse(operand2) + double.Parse(operand3);
+
+
+
                 txtResult.Text = Result.ToString();
-            } else if (operand2 != null)
+            } else if (operand2 != null)    // 3 미존재의 경우
             {
                 txtExp.Text += operand2 + "=";
-                Result = double.Parse(operand1) + double.Parse(operand2);
+                //Result = double.Parse(operand1) + double.Parse(operand2);
                 txtResult.Text = Result.ToString();
+
+                // 디버깅
+                label1.Text = operand1;
+                label2.Text = operand2;
+                label3.Text = operand3;
+                label4.Text = operator1.ToString();
+                label4.Text = operator2.ToString();
             }
 
         }
