@@ -45,11 +45,13 @@ namespace Calculator_wf
             this.buttonMultiply = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
             this.buttonMinus = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.buttonPM = new System.Windows.Forms.Button();
             this.buttonNum0 = new System.Windows.Forms.Button();
             this.buttonDot = new System.Windows.Forms.Button();
             this.buttonResult = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonCE
@@ -57,7 +59,7 @@ namespace Calculator_wf
             this.buttonCE.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonCE.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonCE.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonCE.Location = new System.Drawing.Point(12, 67);
+            this.buttonCE.Location = new System.Drawing.Point(12, 71);
             this.buttonCE.Name = "buttonCE";
             this.buttonCE.Size = new System.Drawing.Size(45, 35);
             this.buttonCE.TabIndex = 0;
@@ -70,7 +72,7 @@ namespace Calculator_wf
             this.buttonC.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonC.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonC.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonC.Location = new System.Drawing.Point(63, 67);
+            this.buttonC.Location = new System.Drawing.Point(63, 71);
             this.buttonC.Name = "buttonC";
             this.buttonC.Size = new System.Drawing.Size(45, 35);
             this.buttonC.TabIndex = 1;
@@ -83,7 +85,7 @@ namespace Calculator_wf
             this.buttonDelete.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonDelete.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonDelete.Location = new System.Drawing.Point(114, 67);
+            this.buttonDelete.Location = new System.Drawing.Point(114, 71);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(45, 35);
             this.buttonDelete.TabIndex = 2;
@@ -96,7 +98,7 @@ namespace Calculator_wf
             this.buttonDivision.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonDivision.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonDivision.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonDivision.Location = new System.Drawing.Point(165, 67);
+            this.buttonDivision.Location = new System.Drawing.Point(165, 71);
             this.buttonDivision.Name = "buttonDivision";
             this.buttonDivision.Size = new System.Drawing.Size(45, 35);
             this.buttonDivision.TabIndex = 3;
@@ -108,7 +110,7 @@ namespace Calculator_wf
             this.buttonNum7.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum7.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum7.Location = new System.Drawing.Point(12, 108);
+            this.buttonNum7.Location = new System.Drawing.Point(12, 112);
             this.buttonNum7.Name = "buttonNum7";
             this.buttonNum7.Size = new System.Drawing.Size(45, 35);
             this.buttonNum7.TabIndex = 4;
@@ -121,7 +123,7 @@ namespace Calculator_wf
             this.buttonNum8.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum8.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum8.Location = new System.Drawing.Point(63, 108);
+            this.buttonNum8.Location = new System.Drawing.Point(63, 112);
             this.buttonNum8.Name = "buttonNum8";
             this.buttonNum8.Size = new System.Drawing.Size(45, 35);
             this.buttonNum8.TabIndex = 5;
@@ -133,7 +135,7 @@ namespace Calculator_wf
             this.buttonNum9.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum9.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum9.Location = new System.Drawing.Point(114, 108);
+            this.buttonNum9.Location = new System.Drawing.Point(114, 112);
             this.buttonNum9.Name = "buttonNum9";
             this.buttonNum9.Size = new System.Drawing.Size(45, 35);
             this.buttonNum9.TabIndex = 6;
@@ -145,7 +147,7 @@ namespace Calculator_wf
             this.buttonNum4.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum4.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum4.Location = new System.Drawing.Point(12, 149);
+            this.buttonNum4.Location = new System.Drawing.Point(12, 153);
             this.buttonNum4.Name = "buttonNum4";
             this.buttonNum4.Size = new System.Drawing.Size(45, 35);
             this.buttonNum4.TabIndex = 7;
@@ -158,7 +160,7 @@ namespace Calculator_wf
             this.buttonNum5.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum5.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum5.Location = new System.Drawing.Point(63, 149);
+            this.buttonNum5.Location = new System.Drawing.Point(63, 153);
             this.buttonNum5.Name = "buttonNum5";
             this.buttonNum5.Size = new System.Drawing.Size(45, 35);
             this.buttonNum5.TabIndex = 8;
@@ -170,7 +172,7 @@ namespace Calculator_wf
             this.buttonNum6.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum6.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum6.Location = new System.Drawing.Point(114, 149);
+            this.buttonNum6.Location = new System.Drawing.Point(114, 153);
             this.buttonNum6.Name = "buttonNum6";
             this.buttonNum6.Size = new System.Drawing.Size(45, 35);
             this.buttonNum6.TabIndex = 9;
@@ -182,7 +184,7 @@ namespace Calculator_wf
             this.buttonNum1.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum1.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum1.Location = new System.Drawing.Point(12, 190);
+            this.buttonNum1.Location = new System.Drawing.Point(12, 194);
             this.buttonNum1.Name = "buttonNum1";
             this.buttonNum1.Size = new System.Drawing.Size(45, 35);
             this.buttonNum1.TabIndex = 10;
@@ -194,7 +196,7 @@ namespace Calculator_wf
             this.buttonNum2.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum2.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum2.Location = new System.Drawing.Point(63, 190);
+            this.buttonNum2.Location = new System.Drawing.Point(63, 194);
             this.buttonNum2.Name = "buttonNum2";
             this.buttonNum2.Size = new System.Drawing.Size(45, 35);
             this.buttonNum2.TabIndex = 11;
@@ -206,7 +208,7 @@ namespace Calculator_wf
             this.buttonNum3.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum3.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum3.Location = new System.Drawing.Point(114, 190);
+            this.buttonNum3.Location = new System.Drawing.Point(114, 194);
             this.buttonNum3.Name = "buttonNum3";
             this.buttonNum3.Size = new System.Drawing.Size(45, 35);
             this.buttonNum3.TabIndex = 12;
@@ -218,7 +220,7 @@ namespace Calculator_wf
             this.buttonMultiply.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonMultiply.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonMultiply.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonMultiply.Location = new System.Drawing.Point(165, 108);
+            this.buttonMultiply.Location = new System.Drawing.Point(165, 112);
             this.buttonMultiply.Name = "buttonMultiply";
             this.buttonMultiply.Size = new System.Drawing.Size(45, 35);
             this.buttonMultiply.TabIndex = 13;
@@ -230,7 +232,7 @@ namespace Calculator_wf
             this.buttonPlus.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonPlus.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonPlus.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonPlus.Location = new System.Drawing.Point(165, 149);
+            this.buttonPlus.Location = new System.Drawing.Point(165, 153);
             this.buttonPlus.Name = "buttonPlus";
             this.buttonPlus.Size = new System.Drawing.Size(45, 35);
             this.buttonPlus.TabIndex = 14;
@@ -242,7 +244,7 @@ namespace Calculator_wf
             this.buttonMinus.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonMinus.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonMinus.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonMinus.Location = new System.Drawing.Point(165, 190);
+            this.buttonMinus.Location = new System.Drawing.Point(165, 194);
             this.buttonMinus.Name = "buttonMinus";
             this.buttonMinus.Size = new System.Drawing.Size(45, 35);
             this.buttonMinus.TabIndex = 15;
@@ -254,7 +256,7 @@ namespace Calculator_wf
             this.buttonPM.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonPM.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonPM.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonPM.Location = new System.Drawing.Point(12, 231);
+            this.buttonPM.Location = new System.Drawing.Point(12, 235);
             this.buttonPM.Name = "buttonPM";
             this.buttonPM.Size = new System.Drawing.Size(45, 35);
             this.buttonPM.TabIndex = 16;
@@ -266,7 +268,7 @@ namespace Calculator_wf
             this.buttonNum0.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonNum0.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonNum0.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNum0.Location = new System.Drawing.Point(63, 231);
+            this.buttonNum0.Location = new System.Drawing.Point(63, 235);
             this.buttonNum0.Name = "buttonNum0";
             this.buttonNum0.Size = new System.Drawing.Size(45, 35);
             this.buttonNum0.TabIndex = 17;
@@ -278,7 +280,7 @@ namespace Calculator_wf
             this.buttonDot.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonDot.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonDot.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonDot.Location = new System.Drawing.Point(114, 231);
+            this.buttonDot.Location = new System.Drawing.Point(114, 235);
             this.buttonDot.Name = "buttonDot";
             this.buttonDot.Size = new System.Drawing.Size(45, 35);
             this.buttonDot.TabIndex = 18;
@@ -290,18 +292,47 @@ namespace Calculator_wf
             this.buttonResult.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
             this.buttonResult.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonResult.Location = new System.Drawing.Point(165, 231);
+            this.buttonResult.Location = new System.Drawing.Point(165, 235);
             this.buttonResult.Name = "buttonResult";
             this.buttonResult.Size = new System.Drawing.Size(45, 35);
             this.buttonResult.TabIndex = 19;
             this.buttonResult.Text = "=";
             this.buttonResult.UseVisualStyleBackColor = false;
+            this.buttonResult.Click += new System.EventHandler(this.buttonResult_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("넥슨Lv2고딕", 22F);
+            this.label1.Location = new System.Drawing.Point(112, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 33);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(270, 84);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 21;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(270, 125);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 22;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 281);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.buttonDot);
             this.Controls.Add(this.buttonNum0);
@@ -326,6 +357,7 @@ namespace Calculator_wf
             this.Text = "WF 계산기";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -347,11 +379,13 @@ namespace Calculator_wf
         private System.Windows.Forms.Button buttonMultiply;
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonMinus;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button buttonPM;
         private System.Windows.Forms.Button buttonNum0;
         private System.Windows.Forms.Button buttonDot;
         private System.Windows.Forms.Button buttonResult;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
