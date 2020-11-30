@@ -50,9 +50,10 @@ namespace Calculator_wf
             this.buttonDot = new System.Windows.Forms.Button();
             this.buttonResult = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtExp = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCE
@@ -78,6 +79,7 @@ namespace Calculator_wf
             this.buttonC.TabIndex = 1;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = false;
+            this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
             // 
             // buttonDelete
             // 
@@ -102,6 +104,7 @@ namespace Calculator_wf
             this.buttonDivision.TabIndex = 3;
             this.buttonDivision.Text = "÷";
             this.buttonDivision.UseVisualStyleBackColor = false;
+            this.buttonDivision.Click += new System.EventHandler(this.buttonDivision_Click);
             // 
             // buttonNum7
             // 
@@ -231,6 +234,7 @@ namespace Calculator_wf
             this.buttonMultiply.TabIndex = 13;
             this.buttonMultiply.Text = "x";
             this.buttonMultiply.UseVisualStyleBackColor = false;
+            this.buttonMultiply.Click += new System.EventHandler(this.buttonMultiply_Click);
             // 
             // buttonPlus
             // 
@@ -243,6 +247,7 @@ namespace Calculator_wf
             this.buttonPlus.TabIndex = 14;
             this.buttonPlus.Text = "+";
             this.buttonPlus.UseVisualStyleBackColor = false;
+            this.buttonPlus.Click += new System.EventHandler(this.buttonPlus_Click);
             // 
             // buttonMinus
             // 
@@ -255,6 +260,7 @@ namespace Calculator_wf
             this.buttonMinus.TabIndex = 15;
             this.buttonMinus.Text = "-";
             this.buttonMinus.UseVisualStyleBackColor = false;
+            this.buttonMinus.Click += new System.EventHandler(this.buttonMinus_Click);
             // 
             // buttonPM
             // 
@@ -310,46 +316,60 @@ namespace Calculator_wf
             // 
             this.txtResult.AutoSize = true;
             this.txtResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 22F);
-            this.txtResult.Location = new System.Drawing.Point(159, 35);
+            this.txtResult.Location = new System.Drawing.Point(168, 35);
             this.txtResult.Name = "txtResult";
+            this.txtResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtResult.Size = new System.Drawing.Size(33, 33);
             this.txtResult.TabIndex = 20;
             this.txtResult.Text = "0";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(331, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 21;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(331, 167);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 22;
             // 
             // txtExp
             // 
             this.txtExp.AutoSize = true;
             this.txtExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtExp.Location = new System.Drawing.Point(161, 9);
+            this.txtExp.Location = new System.Drawing.Point(186, 9);
             this.txtExp.Name = "txtExp";
-            this.txtExp.Size = new System.Drawing.Size(21, 21);
+            this.txtExp.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtExp.Size = new System.Drawing.Size(0, 21);
             this.txtExp.TabIndex = 23;
-            this.txtExp.Text = "0";
             this.txtExp.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.txtExp.Click += new System.EventHandler(this.txtExp_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(348, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 12);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(350, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 12);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(350, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 12);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "label3";
             // 
             // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 281);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtExp);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.buttonDot);
@@ -401,9 +421,10 @@ namespace Calculator_wf
         private System.Windows.Forms.Button buttonDot;
         private System.Windows.Forms.Button buttonResult;
         private System.Windows.Forms.Label txtResult;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label txtExp;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
