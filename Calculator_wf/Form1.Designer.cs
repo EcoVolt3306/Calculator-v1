@@ -1,7 +1,7 @@
 ﻿
 namespace Calculator_wf
 {
-    partial class Form1
+    partial class Frame
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -49,9 +49,10 @@ namespace Calculator_wf
             this.buttonNum0 = new System.Windows.Forms.Button();
             this.buttonDot = new System.Windows.Forms.Button();
             this.buttonResult = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtResult = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtExp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCE
@@ -65,7 +66,6 @@ namespace Calculator_wf
             this.buttonCE.TabIndex = 0;
             this.buttonCE.Text = "CE";
             this.buttonCE.UseVisualStyleBackColor = false;
-            this.buttonCE.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonC
             // 
@@ -78,7 +78,6 @@ namespace Calculator_wf
             this.buttonC.TabIndex = 1;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = false;
-            this.buttonC.Click += new System.EventHandler(this.button2_Click);
             // 
             // buttonDelete
             // 
@@ -91,7 +90,6 @@ namespace Calculator_wf
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "◀";
             this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.button3_Click);
             // 
             // buttonDivision
             // 
@@ -116,7 +114,7 @@ namespace Calculator_wf
             this.buttonNum7.TabIndex = 4;
             this.buttonNum7.Text = "7";
             this.buttonNum7.UseVisualStyleBackColor = false;
-            this.buttonNum7.Click += new System.EventHandler(this.button7_Click);
+            this.buttonNum7.Click += new System.EventHandler(this.buttonNum7_Click);
             // 
             // buttonNum8
             // 
@@ -129,6 +127,7 @@ namespace Calculator_wf
             this.buttonNum8.TabIndex = 5;
             this.buttonNum8.Text = "8";
             this.buttonNum8.UseVisualStyleBackColor = false;
+            this.buttonNum8.Click += new System.EventHandler(this.buttonNum8_Click);
             // 
             // buttonNum9
             // 
@@ -141,6 +140,7 @@ namespace Calculator_wf
             this.buttonNum9.TabIndex = 6;
             this.buttonNum9.Text = "9";
             this.buttonNum9.UseVisualStyleBackColor = false;
+            this.buttonNum9.Click += new System.EventHandler(this.buttonNum9_Click);
             // 
             // buttonNum4
             // 
@@ -153,7 +153,7 @@ namespace Calculator_wf
             this.buttonNum4.TabIndex = 7;
             this.buttonNum4.Text = "4";
             this.buttonNum4.UseVisualStyleBackColor = false;
-            this.buttonNum4.Click += new System.EventHandler(this.button3_Click_1);
+            this.buttonNum4.Click += new System.EventHandler(this.buttonNum4_Click);
             // 
             // buttonNum5
             // 
@@ -166,6 +166,7 @@ namespace Calculator_wf
             this.buttonNum5.TabIndex = 8;
             this.buttonNum5.Text = "5";
             this.buttonNum5.UseVisualStyleBackColor = false;
+            this.buttonNum5.Click += new System.EventHandler(this.buttonNum5_Click);
             // 
             // buttonNum6
             // 
@@ -178,6 +179,7 @@ namespace Calculator_wf
             this.buttonNum6.TabIndex = 9;
             this.buttonNum6.Text = "6";
             this.buttonNum6.UseVisualStyleBackColor = false;
+            this.buttonNum6.Click += new System.EventHandler(this.buttonNum6_Click);
             // 
             // buttonNum1
             // 
@@ -190,6 +192,7 @@ namespace Calculator_wf
             this.buttonNum1.TabIndex = 10;
             this.buttonNum1.Text = "1";
             this.buttonNum1.UseVisualStyleBackColor = false;
+            this.buttonNum1.Click += new System.EventHandler(this.buttonNum1_Click);
             // 
             // buttonNum2
             // 
@@ -202,6 +205,7 @@ namespace Calculator_wf
             this.buttonNum2.TabIndex = 11;
             this.buttonNum2.Text = "2";
             this.buttonNum2.UseVisualStyleBackColor = false;
+            this.buttonNum2.Click += new System.EventHandler(this.buttonNum2_Click);
             // 
             // buttonNum3
             // 
@@ -214,6 +218,7 @@ namespace Calculator_wf
             this.buttonNum3.TabIndex = 12;
             this.buttonNum3.Text = "3";
             this.buttonNum3.UseVisualStyleBackColor = false;
+            this.buttonNum3.Click += new System.EventHandler(this.buttonNum3_Click);
             // 
             // buttonMultiply
             // 
@@ -274,6 +279,7 @@ namespace Calculator_wf
             this.buttonNum0.TabIndex = 17;
             this.buttonNum0.Text = "0";
             this.buttonNum0.UseVisualStyleBackColor = false;
+            this.buttonNum0.Click += new System.EventHandler(this.buttonNum0_Click);
             // 
             // buttonDot
             // 
@@ -300,39 +306,51 @@ namespace Calculator_wf
             this.buttonResult.UseVisualStyleBackColor = false;
             this.buttonResult.Click += new System.EventHandler(this.buttonResult_Click);
             // 
-            // label1
+            // txtResult
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("넥슨Lv2고딕", 22F);
-            this.label1.Location = new System.Drawing.Point(112, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 33);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.txtResult.AutoSize = true;
+            this.txtResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 22F);
+            this.txtResult.Location = new System.Drawing.Point(159, 35);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(33, 33);
+            this.txtResult.TabIndex = 20;
+            this.txtResult.Text = "0";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(270, 84);
+            this.textBox1.Location = new System.Drawing.Point(331, 126);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 21;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(270, 125);
+            this.textBox2.Location = new System.Drawing.Point(331, 167);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 22;
             // 
-            // Form1
+            // txtExp
+            // 
+            this.txtExp.AutoSize = true;
+            this.txtExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.txtExp.Location = new System.Drawing.Point(161, 9);
+            this.txtExp.Name = "txtExp";
+            this.txtExp.Size = new System.Drawing.Size(21, 21);
+            this.txtExp.TabIndex = 23;
+            this.txtExp.Text = "0";
+            this.txtExp.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.txtExp.Click += new System.EventHandler(this.txtExp_Click);
+            // 
+            // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 281);
+            this.Controls.Add(this.txtExp);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtResult);
             this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.buttonDot);
             this.Controls.Add(this.buttonNum0);
@@ -353,9 +371,8 @@ namespace Calculator_wf
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonC);
             this.Controls.Add(this.buttonCE);
-            this.Name = "Form1";
+            this.Name = "Frame";
             this.Text = "WF 계산기";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,9 +400,10 @@ namespace Calculator_wf
         private System.Windows.Forms.Button buttonNum0;
         private System.Windows.Forms.Button buttonDot;
         private System.Windows.Forms.Button buttonResult;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtResult;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label txtExp;
     }
 }
 
