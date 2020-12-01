@@ -56,6 +56,8 @@ namespace Calculator_wf
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.expList01 = new System.Windows.Forms.Label();
+            this.resultList01 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCE
@@ -339,7 +341,7 @@ namespace Calculator_wf
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(348, 71);
+            this.label1.Location = new System.Drawing.Point(264, 235);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 12);
             this.label1.TabIndex = 24;
@@ -348,7 +350,7 @@ namespace Calculator_wf
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(350, 112);
+            this.label2.Location = new System.Drawing.Point(323, 235);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 12);
             this.label2.TabIndex = 25;
@@ -357,7 +359,7 @@ namespace Calculator_wf
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(350, 153);
+            this.label3.Location = new System.Drawing.Point(386, 235);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 12);
             this.label3.TabIndex = 26;
@@ -366,7 +368,7 @@ namespace Calculator_wf
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(298, 222);
+            this.label4.Location = new System.Drawing.Point(216, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 12);
             this.label4.TabIndex = 27;
@@ -375,17 +377,41 @@ namespace Calculator_wf
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(392, 221);
+            this.label5.Location = new System.Drawing.Point(434, 258);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 12);
             this.label5.TabIndex = 28;
             this.label5.Text = "label5";
+            // 
+            // expList01
+            // 
+            this.expList01.AutoSize = true;
+            this.expList01.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.expList01.Location = new System.Drawing.Point(419, 35);
+            this.expList01.Name = "expList01";
+            this.expList01.Size = new System.Drawing.Size(37, 12);
+            this.expList01.TabIndex = 29;
+            this.expList01.Text = "label6";
+            this.expList01.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // resultList01
+            // 
+            this.resultList01.AutoSize = true;
+            this.resultList01.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.resultList01.Location = new System.Drawing.Point(394, 58);
+            this.resultList01.Name = "resultList01";
+            this.resultList01.Size = new System.Drawing.Size(62, 21);
+            this.resultList01.TabIndex = 30;
+            this.resultList01.Text = "label7";
+            this.resultList01.Click += new System.EventHandler(this.resultList01_Click);
             // 
             // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 281);
+            this.Controls.Add(this.resultList01);
+            this.Controls.Add(this.expList01);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -449,6 +475,8 @@ namespace Calculator_wf
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label expList01;
+        private System.Windows.Forms.Label resultList01;
     }
 }
 

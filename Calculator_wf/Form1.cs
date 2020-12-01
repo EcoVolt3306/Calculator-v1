@@ -175,6 +175,16 @@ namespace Calculator_wf
             label5.Text = operator2.ToString();
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resultList01_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonDivision_Click(object sender, EventArgs e)
         {
             // 나눗셈 버튼 기능
@@ -227,6 +237,9 @@ namespace Calculator_wf
 
 
         }
+
+        /// ///////////////////////////////////////////////////////////////////////
+
 
         private void buttonResult_Click(object sender, EventArgs e)
         {
@@ -282,24 +295,19 @@ namespace Calculator_wf
             if (operand3 != null)   // 3 존재의 경우
             {
                 txtExp.Text += operand3 + "=";
-                //Result = double.Parse(operand1) + double.Parse(operand2) + double.Parse(operand3);
-
-
-
                 txtResult.Text = Result.ToString();
             } else if (operand2 != null)    // 3 미존재의 경우
             {
                 txtExp.Text += operand2 + "=";
-                //Result = double.Parse(operand1) + double.Parse(operand2);
                 txtResult.Text = Result.ToString();
-
-                // 디버깅
-                label1.Text = operand1;
-                label2.Text = operand2;
-                label3.Text = operand3;
-                label4.Text = operator1.ToString();
-                label5.Text = operator2.ToString();
             }
+
+            // 디버깅
+            label1.Text = operand1;
+            label2.Text = operand2;
+            label3.Text = operand3;
+            label4.Text = operator1.ToString();
+            label5.Text = operator2.ToString();
 
         }
     }
