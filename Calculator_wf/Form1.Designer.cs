@@ -56,8 +56,10 @@ namespace Calculator_wf
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.expList01 = new System.Windows.Forms.Label();
-            this.resultList01 = new System.Windows.Forms.Label();
+            this.txtExp01 = new System.Windows.Forms.Label();
+            this.txtResult01 = new System.Windows.Forms.Label();
+            this.txtExp02 = new System.Windows.Forms.Label();
+            this.txtResult02 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCE
@@ -320,12 +322,13 @@ namespace Calculator_wf
             // 
             this.txtResult.AutoSize = true;
             this.txtResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 22F);
+            this.txtResult.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.txtResult.Location = new System.Drawing.Point(168, 35);
             this.txtResult.Name = "txtResult";
-            this.txtResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtResult.Size = new System.Drawing.Size(33, 33);
             this.txtResult.TabIndex = 20;
             this.txtResult.Text = "0";
+            this.txtResult.Click += new System.EventHandler(this.txtResult_Click);
             // 
             // txtExp
             // 
@@ -383,35 +386,55 @@ namespace Calculator_wf
             this.label5.TabIndex = 28;
             this.label5.Text = "label5";
             // 
-            // expList01
+            // txtExp01
             // 
-            this.expList01.AutoSize = true;
-            this.expList01.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.expList01.Location = new System.Drawing.Point(419, 35);
-            this.expList01.Name = "expList01";
-            this.expList01.Size = new System.Drawing.Size(37, 12);
-            this.expList01.TabIndex = 29;
-            this.expList01.Text = "label6";
-            this.expList01.Click += new System.EventHandler(this.label6_Click);
+            this.txtExp01.AutoSize = true;
+            this.txtExp01.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.txtExp01.Location = new System.Drawing.Point(419, 46);
+            this.txtExp01.Name = "txtExp01";
+            this.txtExp01.Size = new System.Drawing.Size(0, 12);
+            this.txtExp01.TabIndex = 29;
+            this.txtExp01.Click += new System.EventHandler(this.label6_Click);
             // 
-            // resultList01
+            // txtResult01
             // 
-            this.resultList01.AutoSize = true;
-            this.resultList01.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.resultList01.Location = new System.Drawing.Point(394, 58);
-            this.resultList01.Name = "resultList01";
-            this.resultList01.Size = new System.Drawing.Size(62, 21);
-            this.resultList01.TabIndex = 30;
-            this.resultList01.Text = "label7";
-            this.resultList01.Click += new System.EventHandler(this.resultList01_Click);
+            this.txtResult01.AutoSize = true;
+            this.txtResult01.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.txtResult01.Location = new System.Drawing.Point(394, 58);
+            this.txtResult01.Name = "txtResult01";
+            this.txtResult01.Size = new System.Drawing.Size(0, 21);
+            this.txtResult01.TabIndex = 30;
+            this.txtResult01.Click += new System.EventHandler(this.resultList01_Click);
+            // 
+            // txtExp02
+            // 
+            this.txtExp02.AutoSize = true;
+            this.txtExp02.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.txtExp02.Location = new System.Drawing.Point(410, 94);
+            this.txtExp02.Name = "txtExp02";
+            this.txtExp02.Size = new System.Drawing.Size(37, 12);
+            this.txtExp02.TabIndex = 31;
+            this.txtExp02.Text = "label6";
+            // 
+            // txtResult02
+            // 
+            this.txtResult02.AutoSize = true;
+            this.txtResult02.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.txtResult02.Location = new System.Drawing.Point(385, 112);
+            this.txtResult02.Name = "txtResult02";
+            this.txtResult02.Size = new System.Drawing.Size(62, 21);
+            this.txtResult02.TabIndex = 32;
+            this.txtResult02.Text = "label7";
             // 
             // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 281);
-            this.Controls.Add(this.resultList01);
-            this.Controls.Add(this.expList01);
+            this.Controls.Add(this.txtResult02);
+            this.Controls.Add(this.txtExp02);
+            this.Controls.Add(this.txtResult01);
+            this.Controls.Add(this.txtExp01);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -475,8 +498,10 @@ namespace Calculator_wf
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label expList01;
-        private System.Windows.Forms.Label resultList01;
+        private System.Windows.Forms.Label txtResult01;
+        private System.Windows.Forms.Label txtExp01;
+        private System.Windows.Forms.Label txtExp02;
+        private System.Windows.Forms.Label txtResult02;
     }
 }
 

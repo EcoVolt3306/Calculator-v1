@@ -185,6 +185,11 @@ namespace Calculator_wf
 
         }
 
+        private void txtResult_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonDivision_Click(object sender, EventArgs e)
         {
             // 나눗셈 버튼 기능
@@ -301,6 +306,14 @@ namespace Calculator_wf
                 txtExp.Text += operand2 + "=";
                 txtResult.Text = Result.ToString();
             }
+
+            // 기록에도 저장
+            if (txtExp01.Text == "")
+            {
+                txtExp01.Text = txtExp.Text;        // 수식
+                txtResult01.Text = txtResult.Text;  // 결과
+            }
+
 
             // 디버깅
             label1.Text = operand1;
