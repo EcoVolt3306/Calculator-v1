@@ -261,6 +261,11 @@ namespace Calculator_wf
 
         }
 
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtExp02_Click(object sender, EventArgs e)
         {
 
