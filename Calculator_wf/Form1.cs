@@ -11,6 +11,8 @@ namespace Calculator_wf
         string temp;    // 임시
         double Result;
 
+        int listCount = 0;
+        int resultCount = 0;
 
         public Frame()
         {
@@ -73,7 +75,7 @@ namespace Calculator_wf
 
         private void buttonNum0_Click(object sender, EventArgs e)
         {
-            if(txtExp.Text == "0")
+            if (txtExp.Text == "0")
             {
                 // txtResult 값이 이미 0일 경우 아무런 수행 X 
             }
@@ -94,19 +96,27 @@ namespace Calculator_wf
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             // 덧셈 버튼 기능
+            if(resultCount == 1)    // 결과 이력 초기화
+            {
+                txtExp.Text = "";
+                resultCount = 0;    
+            }
+                
             if (operand1 == null)
             {
                 operand1 = temp;        // 피연산자1에 값을 저장
                 operator1 = 1;          // 1==Add
-            } else if (operand2 == null)
+            }
+            else if (operand2 == null)
             {
                 operand2 = temp;        // 피연산자2에 값을 저장
                 operator2 = 1;          // 1==Add
-            } else if (operand3 == null)
+            }
+            else if (operand3 == null)
             {
                 operand3 = temp;        // 피연산자1에 값을 저장
             }
-            
+
 
             temp += " + ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
@@ -123,6 +133,13 @@ namespace Calculator_wf
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             // 뺄셈 버튼 기능
+
+            if (resultCount == 1)    // 결과 이력 초기화
+            {
+                txtExp.Text = "";
+                resultCount = 0;
+            }
+
             if (operand1 == null)
             {
                 operand1 = temp;        // 피연산자1에 값을 저장
@@ -154,6 +171,13 @@ namespace Calculator_wf
         private void buttonMultiply_Click(object sender, EventArgs e)
         {
             // 곱셈 버튼 기능
+
+            if (resultCount == 1)    // 결과 이력 초기화
+            {
+                txtExp.Text = "";
+                resultCount = 0;
+            }
+
             if (operand1 == null)
             {
                 operand1 = temp;        // 피연산자1에 값을 저장
@@ -184,6 +208,13 @@ namespace Calculator_wf
         private void buttonDivision_Click(object sender, EventArgs e)
         {
             // 나눗셈 버튼 기능
+
+            if (resultCount == 1)    // 결과 이력 초기화
+            {
+                txtExp.Text = "";
+                resultCount = 0;
+            }
+
             if (operand1 == null)
             {
                 operand1 = temp;        // 피연산자1에 값을 저장
@@ -304,28 +335,34 @@ namespace Calculator_wf
             // 마지막 피식별자 입력
             if (temp != null)
             {
-                if(operand1 == null)
+                if (operand1 == null)
                 {
                     operand1 = temp;
-                } else if (operand2 == null)
+                }
+                else if (operand2 == null)
                 {
                     operand2 = temp;
-                } else if (operand3 == null)
+                }
+                else if (operand3 == null)
                 {
                     operand3 = temp;
                 }
             }
 
             // 첫번째 연산자 조건문
-            if (operator1 == 1){
+            if (operator1 == 1)
+            {
                 Result = double.Parse(operand1) + double.Parse(operand2);
-            } else if(operator1 == 2)
+            }
+            else if (operator1 == 2)
             {
                 Result = double.Parse(operand1) - double.Parse(operand2);
-            } else if(operator1 == 3)
+            }
+            else if (operator1 == 3)
             {
                 Result = double.Parse(operand1) * double.Parse(operand2);
-            } else if (operator1 == 4)
+            }
+            else if (operator1 == 4)
             {
                 Result = double.Parse(operand1) / double.Parse(operand2);
             }
@@ -334,7 +371,8 @@ namespace Calculator_wf
             if (operator2 == 1)
             {
                 Result += double.Parse(operand3);
-            } else if (operator2 == 2)
+            }
+            else if (operator2 == 2)
             {
                 Result -= double.Parse(operand3);
             }
@@ -352,18 +390,36 @@ namespace Calculator_wf
             {
                 txtExp.Text += operand3 + "=";
                 txtResult.Text = Result.ToString();
-            } else if (operand2 != null)    // 3 미존재의 경우
+            }
+            else if (operand2 != null)    // 3 미존재의 경우
             {
                 txtExp.Text += operand2 + "=";
                 txtResult.Text = Result.ToString();
             }
 
             // 기록에도 저장
-            if (txtExp01.Text == "")
+            switch (listCount)
             {
-                txtExp01.Text = txtExp.Text;        // 수식
-                txtResult01.Text = txtResult.Text;  // 결과
+                case 0:
+                    txtExp01.Text = txtExp.Text;        // 수식
+                    txtResult01.Text = txtResult.Text;  // 결과
+                    listCount++;
+                    txtListCount.Text = listCount.ToString();
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                    listCount++;
+                    break;
             }
+
+
 
 
             // 디버깅
@@ -372,6 +428,15 @@ namespace Calculator_wf
             label3.Text = operand3;
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
+
+            // 초기화
+            temp = "";
+            operand1 = null;
+            operand2 = null;
+            operand3 = null;
+            operator1 = 0;
+            operator2 = 0;
+            resultCount = 1;    // = 버튼 기록 활성화
 
         }
     }

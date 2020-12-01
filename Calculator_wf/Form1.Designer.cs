@@ -71,6 +71,7 @@ namespace Calculator_wf
             this.txtExp03 = new System.Windows.Forms.Label();
             this.txtResult02 = new System.Windows.Forms.Label();
             this.txtExp02 = new System.Windows.Forms.Label();
+            this.txtListCount = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.actList.SuspendLayout();
             this.SuspendLayout();
@@ -360,46 +361,46 @@ namespace Calculator_wf
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 326);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 12);
+            this.label1.Size = new System.Drawing.Size(57, 12);
             this.label1.TabIndex = 24;
-            this.label1.Text = "label1";
+            this.label1.Text = "operand1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 326);
+            this.label2.Location = new System.Drawing.Point(73, 326);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 12);
+            this.label2.Size = new System.Drawing.Size(57, 12);
             this.label2.TabIndex = 25;
-            this.label2.Text = "label2";
+            this.label2.Text = "operand2";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(112, 326);
+            this.label3.Location = new System.Drawing.Point(136, 326);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 12);
+            this.label3.Size = new System.Drawing.Size(57, 12);
             this.label3.TabIndex = 26;
-            this.label3.Text = "label3";
+            this.label3.Text = "operand3";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 352);
+            this.label4.Location = new System.Drawing.Point(29, 352);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 12);
+            this.label4.Size = new System.Drawing.Size(57, 12);
             this.label4.TabIndex = 27;
-            this.label4.Text = "label4";
+            this.label4.Text = "operator1";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 352);
+            this.label5.Location = new System.Drawing.Point(112, 352);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 12);
+            this.label5.Size = new System.Drawing.Size(57, 12);
             this.label5.TabIndex = 28;
-            this.label5.Text = "label5";
+            this.label5.Text = "operator2";
             // 
             // txtExp01
             // 
@@ -547,12 +548,22 @@ namespace Calculator_wf
             this.txtExp02.TabIndex = 37;
             this.txtExp02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtListCount
+            // 
+            this.txtListCount.AutoSize = true;
+            this.txtListCount.Location = new System.Drawing.Point(218, 326);
+            this.txtListCount.Name = "txtListCount";
+            this.txtListCount.Size = new System.Drawing.Size(70, 12);
+            this.txtListCount.TabIndex = 38;
+            this.txtListCount.Text = "listCount(0)";
+            // 
             // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(484, 381);
+            this.Controls.Add(this.txtListCount);
             this.Controls.Add(this.txtExp);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label6);
@@ -636,6 +647,7 @@ namespace Calculator_wf
         private System.Windows.Forms.Label txtExp04;
         private System.Windows.Forms.Label txtResult05;
         private System.Windows.Forms.Label txtExp05;
+        private System.Windows.Forms.Label txtListCount;
     }
 }
 
