@@ -11,10 +11,10 @@ namespace Calculator_wf
         string temp;    // 임시
         double Result;  // 결과값
 
-        int[] ttest = new int[5];
+        string[,] historyValue = new string[5,2];    // 2차원 배열 = 계산 기록
 
-        int listCount = 0;
-        int resultCount = 0;
+        int listCount = 0;  // 계산 기록 카운트 횟수
+        Boolean resultCount = false;    // = 버튼 누른 횟수
 
         public Frame()
         {
@@ -98,10 +98,10 @@ namespace Calculator_wf
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             // 덧셈 버튼 기능
-            if(resultCount == 1)    // 결과 이력 초기화
+            if(resultCount == true)    // 결과 이력 초기화
             {
                 txtExp.Text = "";
-                resultCount = 0;    
+                resultCount = false;    
             }
                 
             if (operand1 == null)
@@ -136,10 +136,10 @@ namespace Calculator_wf
         {
             // 뺄셈 버튼 기능
 
-            if (resultCount == 1)    // 결과 이력 초기화
+            if (resultCount == true)    // 결과 이력 초기화
             {
                 txtExp.Text = "";
-                resultCount = 0;
+                resultCount = false;
             }
 
             if (operand1 == null)
@@ -174,10 +174,10 @@ namespace Calculator_wf
         {
             // 곱셈 버튼 기능
 
-            if (resultCount == 1)    // 결과 이력 초기화
+            if (resultCount == true)    // 결과 이력 초기화
             {
                 txtExp.Text = "";
-                resultCount = 0;
+                resultCount = false;
             }
 
             if (operand1 == null)
@@ -211,10 +211,10 @@ namespace Calculator_wf
         {
             // 나눗셈 버튼 기능
 
-            if (resultCount == 1)    // 결과 이력 초기화
+            if (resultCount == true)    // 결과 이력 초기화
             {
                 txtExp.Text = "";
-                resultCount = 0;
+                resultCount = false;
             }
 
             if (operand1 == null)
@@ -339,50 +339,30 @@ namespace Calculator_wf
                 txtResult.Text = Result.ToString();
             }
 
+            
+
             // 기록에도 저장
             switch (listCount)
             {
                 case 0:
-                    txtExp01.Text = txtExp.Text;        // 수식
-                    txtResult01.Text = txtResult.Text;  // 결과
-                    listCount++;
-                    txtListCount.Text = listCount.ToString();   // 디버깅
-                    break;
                 case 1:
-                    txtExp02.Text = txtExp01.Text;  // 이전값 다음 행으로 이동
-                    txtResult02.Text = txtResult01.Text;
-
-                    txtExp01.Text = txtExp.Text;        // 수식
-                    txtResult01.Text = txtResult.Text;  // 결과
-                    listCount++;
-                    txtListCount.Text = listCount.ToString();   // 디버깅
-                    break;
                 case 2:
-                    txtExp03.Text = txtExp02.Text;  // 이전값 다음 행으로 이동
-                    txtResult03.Text = txtResult02.Text;
-                    txtExp02.Text = txtExp01.Text;  // 이전값 다음 행으로 이동
-                    txtResult02.Text = txtResult01.Text;
-
-                    txtExp01.Text = txtExp.Text;        // 수식
-                    txtResult01.Text = txtResult.Text;  // 결과
-                    listCount++;
-                    txtListCount.Text = listCount.ToString();   // 디버깅
-                    break;
                 case 3:
-                    txtExp02.Text = txtExp01.Text;  // 이전값 다음 행으로 이동
-                    txtResult02.Text = txtResult01.Text;
-
-                    txtExp01.Text = txtExp.Text;        // 수식
-                    txtResult01.Text = txtResult.Text;  // 결과
-                    listCount++;
-                    txtListCount.Text = listCount.ToString();   // 디버깅
-                    break;
                 case 4:
-                    break;
-                default:
-                    listCount++;
+                    for(int i=0; i<=listCount; i++)
+                    {
+                        historyValue[listCount, listCount] = txtExp.Text;           //[0,0]
+                        historyValue[listCount, listCount + 1] = txtResult.Text;    //[0,1]
+
+                        
+                    }
+
+                    
                     break;
             }
+
+            listCount++;    // = 카운트 횟수 1 증가
+            txtListCount.Text = listCount.ToString();   // 디버깅
 
 
 
@@ -401,7 +381,7 @@ namespace Calculator_wf
             operand3 = null;
             operator1 = 0;
             operator2 = 0;
-            resultCount = 1;    // = 버튼 기록 활성화
+            resultCount = true;    // 결과 이력 카운트
 
         }
 
