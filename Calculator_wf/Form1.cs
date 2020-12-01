@@ -85,6 +85,12 @@ namespace Calculator_wf
 
         }
 
+        private void buttonDot_Click(object sender, EventArgs e)
+        {
+            temp += ".";
+            txtResult.Text = temp.ToString();
+        }
+
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             // 덧셈 버튼 기능
@@ -102,7 +108,7 @@ namespace Calculator_wf
             }
             
 
-            temp += "+";               // temp에 + 기호 추가
+            temp += " + ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
             temp = null;                  // temp 초기화
 
@@ -133,7 +139,7 @@ namespace Calculator_wf
             }
 
 
-            temp += "-";               // temp에 + 기호 추가
+            temp += " - ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
             temp = null;                  // temp 초기화
 
@@ -163,7 +169,37 @@ namespace Calculator_wf
                 operand3 = temp;        // 피연산자1에 값을 저장
             }
 
-            temp += "x";               // temp에 + 기호 추가
+            temp += " x ";               // temp에 + 기호 추가
+            txtExp.Text += temp;    // 수식값에 temp값 추가
+            temp = null;                  // temp 초기화
+
+            // 디버깅
+            label1.Text = operand1;
+            label2.Text = operand2;
+            label3.Text = operand3;
+            label4.Text = operator1.ToString();
+            label5.Text = operator2.ToString();
+        }
+
+        private void buttonDivision_Click(object sender, EventArgs e)
+        {
+            // 나눗셈 버튼 기능
+            if (operand1 == null)
+            {
+                operand1 = temp;        // 피연산자1에 값을 저장
+                operator1 = 4;              // 4==Division
+            }
+            else if (operand2 == null)
+            {
+                operand2 = temp;        // 피연산자2에 값을 저장
+                operator2 = 4;               // 4==Division
+            }
+            else if (operand3 == null)
+            {
+                operand3 = temp;        // 피연산자1에 값을 저장
+            }
+
+            temp += " ÷ ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
             temp = null;                  // temp 초기화
 
@@ -190,34 +226,19 @@ namespace Calculator_wf
 
         }
 
-        private void buttonDivision_Click(object sender, EventArgs e)
+        private void Frame_Load(object sender, EventArgs e)
         {
-            // 나눗셈 버튼 기능
-            if (operand1 == null)
-            {
-                operand1 = temp;        // 피연산자1에 값을 저장
-                operator1 = 4;              // 4==Division
-            }
-            else if (operand2 == null)
-            {
-                operand2 = temp;        // 피연산자2에 값을 저장
-                operator2 = 4;               // 4==Division
-            }
-            else if (operand3 == null)
-            {
-                operand3 = temp;        // 피연산자1에 값을 저장
-            }
 
-            temp += "÷";               // temp에 + 기호 추가
-            txtExp.Text += temp;    // 수식값에 temp값 추가
-            temp = null;                  // temp 초기화
+        }
 
-            // 디버깅
-            label1.Text = operand1;
-            label2.Text = operand2;
-            label3.Text = operand3;
-            label4.Text = operator1.ToString();
-            label5.Text = operator2.ToString();
+        private void txtResult02_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtExp02_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonC_Click(object sender, EventArgs e)

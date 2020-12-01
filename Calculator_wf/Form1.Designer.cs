@@ -29,6 +29,7 @@ namespace Calculator_wf
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frame));
             this.buttonCE = new System.Windows.Forms.Button();
             this.buttonC = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -304,6 +305,7 @@ namespace Calculator_wf
             this.buttonDot.TabIndex = 18;
             this.buttonDot.Text = ".";
             this.buttonDot.UseVisualStyleBackColor = false;
+            this.buttonDot.Click += new System.EventHandler(this.buttonDot_Click);
             // 
             // buttonResult
             // 
@@ -320,26 +322,26 @@ namespace Calculator_wf
             // 
             // txtResult
             // 
-            this.txtResult.AutoSize = true;
             this.txtResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 22F);
             this.txtResult.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.txtResult.Location = new System.Drawing.Point(168, 35);
+            this.txtResult.Location = new System.Drawing.Point(12, 31);
+            this.txtResult.MaximumSize = new System.Drawing.Size(220, 30);
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(33, 33);
+            this.txtResult.Size = new System.Drawing.Size(198, 30);
             this.txtResult.TabIndex = 20;
             this.txtResult.Text = "0";
+            this.txtResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtResult.Click += new System.EventHandler(this.txtResult_Click);
             // 
             // txtExp
             // 
-            this.txtExp.AutoSize = true;
-            this.txtExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtExp.Location = new System.Drawing.Point(186, 9);
+            this.txtExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 9F);
+            this.txtExp.Location = new System.Drawing.Point(18, 9);
             this.txtExp.Name = "txtExp";
             this.txtExp.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtExp.Size = new System.Drawing.Size(0, 21);
+            this.txtExp.Size = new System.Drawing.Size(192, 21);
             this.txtExp.TabIndex = 23;
-            this.txtExp.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.txtExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -388,43 +390,45 @@ namespace Calculator_wf
             // 
             // txtExp01
             // 
-            this.txtExp01.AutoSize = true;
             this.txtExp01.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.txtExp01.Location = new System.Drawing.Point(419, 46);
+            this.txtExp01.Location = new System.Drawing.Point(376, 46);
             this.txtExp01.Name = "txtExp01";
-            this.txtExp01.Size = new System.Drawing.Size(0, 12);
+            this.txtExp01.Size = new System.Drawing.Size(100, 23);
             this.txtExp01.TabIndex = 29;
+            this.txtExp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtExp01.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtResult01
             // 
-            this.txtResult01.AutoSize = true;
             this.txtResult01.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtResult01.Location = new System.Drawing.Point(394, 58);
+            this.txtResult01.Location = new System.Drawing.Point(351, 69);
             this.txtResult01.Name = "txtResult01";
-            this.txtResult01.Size = new System.Drawing.Size(0, 21);
+            this.txtResult01.Size = new System.Drawing.Size(100, 23);
             this.txtResult01.TabIndex = 30;
+            this.txtResult01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtResult01.Click += new System.EventHandler(this.resultList01_Click);
             // 
             // txtExp02
             // 
-            this.txtExp02.AutoSize = true;
             this.txtExp02.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.txtExp02.Location = new System.Drawing.Point(410, 94);
+            this.txtExp02.Location = new System.Drawing.Point(372, 101);
             this.txtExp02.Name = "txtExp02";
-            this.txtExp02.Size = new System.Drawing.Size(37, 12);
+            this.txtExp02.Size = new System.Drawing.Size(100, 23);
             this.txtExp02.TabIndex = 31;
             this.txtExp02.Text = "label6";
+            this.txtExp02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtExp02.Click += new System.EventHandler(this.txtExp02_Click);
             // 
             // txtResult02
             // 
-            this.txtResult02.AutoSize = true;
             this.txtResult02.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtResult02.Location = new System.Drawing.Point(385, 112);
+            this.txtResult02.Location = new System.Drawing.Point(351, 124);
             this.txtResult02.Name = "txtResult02";
-            this.txtResult02.Size = new System.Drawing.Size(62, 21);
+            this.txtResult02.Size = new System.Drawing.Size(100, 23);
             this.txtResult02.TabIndex = 32;
             this.txtResult02.Text = "label7";
+            this.txtResult02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtResult02.Click += new System.EventHandler(this.txtResult02_Click);
             // 
             // Frame
             // 
@@ -462,8 +466,10 @@ namespace Calculator_wf
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonC);
             this.Controls.Add(this.buttonCE);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frame";
             this.Text = "WF 계산기";
+            this.Load += new System.EventHandler(this.Frame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
