@@ -9,7 +9,9 @@ namespace Calculator_wf
         int operator1, operator2;   // 연산자
         string operand1, operand2, operand3 = null;    // 피연산자
         string temp;    // 임시
-        double Result;
+        double Result;  // 결과값
+
+        int[] ttest = new int[5];
 
         int listCount = 0;
         int resultCount = 0;
@@ -242,66 +244,6 @@ namespace Calculator_wf
             label5.Text = operator2.ToString();
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void resultList01_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtResult_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Frame_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtResult02_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void actMemory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtExp02_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonC_Click(object sender, EventArgs e)
         {
             // Clear : 초기화
@@ -404,13 +346,36 @@ namespace Calculator_wf
                     txtExp01.Text = txtExp.Text;        // 수식
                     txtResult01.Text = txtResult.Text;  // 결과
                     listCount++;
-                    txtListCount.Text = listCount.ToString();
+                    txtListCount.Text = listCount.ToString();   // 디버깅
                     break;
                 case 1:
+                    txtExp02.Text = txtExp01.Text;  // 이전값 다음 행으로 이동
+                    txtResult02.Text = txtResult01.Text;
+
+                    txtExp01.Text = txtExp.Text;        // 수식
+                    txtResult01.Text = txtResult.Text;  // 결과
+                    listCount++;
+                    txtListCount.Text = listCount.ToString();   // 디버깅
                     break;
                 case 2:
+                    txtExp03.Text = txtExp02.Text;  // 이전값 다음 행으로 이동
+                    txtResult03.Text = txtResult02.Text;
+                    txtExp02.Text = txtExp01.Text;  // 이전값 다음 행으로 이동
+                    txtResult02.Text = txtResult01.Text;
+
+                    txtExp01.Text = txtExp.Text;        // 수식
+                    txtResult01.Text = txtResult.Text;  // 결과
+                    listCount++;
+                    txtListCount.Text = listCount.ToString();   // 디버깅
                     break;
                 case 3:
+                    txtExp02.Text = txtExp01.Text;  // 이전값 다음 행으로 이동
+                    txtResult02.Text = txtResult01.Text;
+
+                    txtExp01.Text = txtExp.Text;        // 수식
+                    txtResult01.Text = txtResult.Text;  // 결과
+                    listCount++;
+                    txtListCount.Text = listCount.ToString();   // 디버깅
                     break;
                 case 4:
                     break;
@@ -437,6 +402,66 @@ namespace Calculator_wf
             operator1 = 0;
             operator2 = 0;
             resultCount = 1;    // = 버튼 기록 활성화
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resultList01_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResult_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Frame_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResult02_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void actMemory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtExp02_Click(object sender, EventArgs e)
+        {
 
         }
     }
