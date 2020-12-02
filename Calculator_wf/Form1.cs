@@ -13,11 +13,12 @@ namespace Calculator_wf
         string temp;    // 임시
         double Result;  // 결과값
 
-        string[,] historyValue = new string[100,202];    // 2차원 배열 = 계산 기록
+        string[,] historyValue = new string[20,2];    // 2차원 배열 = 계산 기록
 
         int listCount = 1;  // 계산 기록 카운트 횟수
         Boolean resultCount = false;    // = 버튼 누른 횟수
 
+        // map1
         Dictionary<int, Label> dicList = new Dictionary<int, Label>();
 
         public Frame()
@@ -36,13 +37,15 @@ namespace Calculator_wf
                 txtMemExp.TabIndex = 33;
                 txtMemExp.AutoSize = false;
                 txtMemExp.Text = "00000000" + i;
-                //actMemory.Controls.Add(txtMemExp);
+                actMemory.Controls.Add(txtMemExp);
 
                 this.Controls.Add(txtMemExp);
 
+                // map2
                 this.dicList.Add(i, txtMemExp);
             }
 
+            // map3
             foreach (var kvp in this.dicList)
             {
                 Console.WriteLine(string.Format("{0}, {1}", kvp.Key, kvp.Value.Text));
@@ -292,7 +295,7 @@ namespace Calculator_wf
         private void buttonDivision_Click(object sender, EventArgs e)
         {
             // 나눗셈 버튼 기능
-
+            
             if (resultCount == true)    // 결과 이력 초기화
             {
                 txtExp.Text = "";
@@ -396,6 +399,20 @@ namespace Calculator_wf
             }
             else if (operator1 == 4)
             {
+                // 0으로 나누려고 시도하는 경우 처리
+                if ((operand3 == "0" || operand2 == "0"))
+                {
+                    txtResult.Text = "0 으로 나눌 수 없습니다.";
+                    temp = null;
+                    operand1 = null;
+                    operand2 = null;
+                    operand3 = null;
+                    operator1 = 0;
+                    operator2 = 0;
+                    resultCount = true;    // 결과 이력 카운트
+                    return;
+                }
+
                 Result = double.Parse(operand1) / double.Parse(operand2);
             }
 
@@ -414,6 +431,19 @@ namespace Calculator_wf
             }
             else if (operator2 == 4)
             {
+                // 0으로 나누려고 시도하는 경우 처리
+                if ((operand3 == "0" || operand2 == "0"))
+                {
+                    txtResult.Text = "0 으로 나눌 수 없습니다.";
+                    temp = null;
+                    operand1 = null;
+                    operand2 = null;
+                    operand3 = null;
+                    operator1 = 0;
+                    operator2 = 0;
+                    resultCount = true;    // 결과 이력 카운트
+                    return;
+                }
                 Result /= double.Parse(operand3);
             }
 
@@ -561,13 +591,3 @@ namespace Calculator_wf
         }
     }
 }
-
-//int data1 = 15;
-//int data2 = 10;
-//int result = 0;
-
-//data1 = int.Parse(textBox1.Text);
-//data2 = int.Parse(textBox2.Text);
-
-//result = data1 + data2;
-//txtResult.Text = result.ToString();
