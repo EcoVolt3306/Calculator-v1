@@ -340,12 +340,12 @@ namespace Calculator_wf
             // 피연산자 수의 따른 연산
             if (operand3 != null)   // 3 존재의 경우
             {
-                txtExp.Text += operand3 + "=";
+                txtExp.Text += operand3 + " =  ";
                 txtResult.Text = Result.ToString();
             }
             else if (operand2 != null)    // 3 미존재의 경우
             {
-                txtExp.Text += operand2 + "=";
+                txtExp.Text += operand2 + " =  ";
                 txtResult.Text = Result.ToString();
             }
 
@@ -452,6 +452,11 @@ namespace Calculator_wf
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResult03_Click(object sender, EventArgs e)
         {
 
         }

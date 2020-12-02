@@ -62,15 +62,15 @@ namespace Calculator_wf
             this.label6 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.actList = new System.Windows.Forms.TabPage();
-            this.actMemory = new System.Windows.Forms.TabPage();
-            this.txtExp05 = new System.Windows.Forms.Label();
-            this.txtResult05 = new System.Windows.Forms.Label();
-            this.txtResult04 = new System.Windows.Forms.Label();
-            this.txtExp04 = new System.Windows.Forms.Label();
-            this.txtResult03 = new System.Windows.Forms.Label();
-            this.txtExp03 = new System.Windows.Forms.Label();
             this.txtResult02 = new System.Windows.Forms.Label();
             this.txtExp02 = new System.Windows.Forms.Label();
+            this.txtResult03 = new System.Windows.Forms.Label();
+            this.txtExp03 = new System.Windows.Forms.Label();
+            this.txtResult04 = new System.Windows.Forms.Label();
+            this.txtExp04 = new System.Windows.Forms.Label();
+            this.txtResult05 = new System.Windows.Forms.Label();
+            this.txtExp05 = new System.Windows.Forms.Label();
+            this.actMemory = new System.Windows.Forms.TabPage();
             this.txtListCount = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.actList.SuspendLayout();
@@ -405,7 +405,7 @@ namespace Calculator_wf
             // txtExp01
             // 
             this.txtExp01.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.txtExp01.Location = new System.Drawing.Point(8, 21);
+            this.txtExp01.Location = new System.Drawing.Point(17, 24);
             this.txtExp01.Name = "txtExp01";
             this.txtExp01.Size = new System.Drawing.Size(225, 10);
             this.txtExp01.TabIndex = 29;
@@ -415,9 +415,9 @@ namespace Calculator_wf
             // txtResult01
             // 
             this.txtResult01.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtResult01.Location = new System.Drawing.Point(13, 31);
+            this.txtResult01.Location = new System.Drawing.Point(6, 34);
             this.txtResult01.Name = "txtResult01";
-            this.txtResult01.Size = new System.Drawing.Size(229, 23);
+            this.txtResult01.Size = new System.Drawing.Size(236, 23);
             this.txtResult01.TabIndex = 30;
             this.txtResult01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtResult01.Click += new System.EventHandler(this.resultList01_Click);
@@ -464,6 +464,80 @@ namespace Calculator_wf
             this.actList.UseVisualStyleBackColor = true;
             this.actList.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // txtResult02
+            // 
+            this.txtResult02.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.txtResult02.Location = new System.Drawing.Point(6, 82);
+            this.txtResult02.Name = "txtResult02";
+            this.txtResult02.Size = new System.Drawing.Size(236, 23);
+            this.txtResult02.TabIndex = 38;
+            this.txtResult02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtExp02
+            // 
+            this.txtExp02.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.txtExp02.Location = new System.Drawing.Point(17, 72);
+            this.txtExp02.Name = "txtExp02";
+            this.txtExp02.Size = new System.Drawing.Size(225, 10);
+            this.txtExp02.TabIndex = 37;
+            this.txtExp02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtResult03
+            // 
+            this.txtResult03.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.txtResult03.Location = new System.Drawing.Point(6, 129);
+            this.txtResult03.Name = "txtResult03";
+            this.txtResult03.Size = new System.Drawing.Size(236, 23);
+            this.txtResult03.TabIndex = 36;
+            this.txtResult03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtResult03.Click += new System.EventHandler(this.txtResult03_Click);
+            // 
+            // txtExp03
+            // 
+            this.txtExp03.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.txtExp03.Location = new System.Drawing.Point(17, 119);
+            this.txtExp03.Name = "txtExp03";
+            this.txtExp03.Size = new System.Drawing.Size(225, 10);
+            this.txtExp03.TabIndex = 35;
+            this.txtExp03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtResult04
+            // 
+            this.txtResult04.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.txtResult04.Location = new System.Drawing.Point(6, 175);
+            this.txtResult04.Name = "txtResult04";
+            this.txtResult04.Size = new System.Drawing.Size(236, 23);
+            this.txtResult04.TabIndex = 34;
+            this.txtResult04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtExp04
+            // 
+            this.txtExp04.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.txtExp04.Location = new System.Drawing.Point(17, 165);
+            this.txtExp04.Name = "txtExp04";
+            this.txtExp04.Size = new System.Drawing.Size(225, 10);
+            this.txtExp04.TabIndex = 33;
+            this.txtExp04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtExp04.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // txtResult05
+            // 
+            this.txtResult05.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.txtResult05.Location = new System.Drawing.Point(6, 219);
+            this.txtResult05.Name = "txtResult05";
+            this.txtResult05.Size = new System.Drawing.Size(236, 23);
+            this.txtResult05.TabIndex = 32;
+            this.txtResult05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtExp05
+            // 
+            this.txtExp05.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.txtExp05.Location = new System.Drawing.Point(17, 209);
+            this.txtExp05.Name = "txtExp05";
+            this.txtExp05.Size = new System.Drawing.Size(225, 10);
+            this.txtExp05.TabIndex = 31;
+            this.txtExp05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // actMemory
             // 
             this.actMemory.Font = new System.Drawing.Font("맑은 고딕", 9F);
@@ -474,79 +548,6 @@ namespace Calculator_wf
             this.actMemory.TabIndex = 1;
             this.actMemory.Text = "저장 기록";
             this.actMemory.UseVisualStyleBackColor = true;
-            // 
-            // txtExp05
-            // 
-            this.txtExp05.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.txtExp05.Location = new System.Drawing.Point(10, 203);
-            this.txtExp05.Name = "txtExp05";
-            this.txtExp05.Size = new System.Drawing.Size(221, 10);
-            this.txtExp05.TabIndex = 31;
-            this.txtExp05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtResult05
-            // 
-            this.txtResult05.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtResult05.Location = new System.Drawing.Point(6, 213);
-            this.txtResult05.Name = "txtResult05";
-            this.txtResult05.Size = new System.Drawing.Size(236, 23);
-            this.txtResult05.TabIndex = 32;
-            this.txtResult05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtResult04
-            // 
-            this.txtResult04.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtResult04.Location = new System.Drawing.Point(8, 169);
-            this.txtResult04.Name = "txtResult04";
-            this.txtResult04.Size = new System.Drawing.Size(236, 23);
-            this.txtResult04.TabIndex = 34;
-            this.txtResult04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtExp04
-            // 
-            this.txtExp04.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.txtExp04.Location = new System.Drawing.Point(11, 159);
-            this.txtExp04.Name = "txtExp04";
-            this.txtExp04.Size = new System.Drawing.Size(221, 10);
-            this.txtExp04.TabIndex = 33;
-            this.txtExp04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtExp04.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // txtResult03
-            // 
-            this.txtResult03.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtResult03.Location = new System.Drawing.Point(9, 119);
-            this.txtResult03.Name = "txtResult03";
-            this.txtResult03.Size = new System.Drawing.Size(236, 23);
-            this.txtResult03.TabIndex = 36;
-            this.txtResult03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtExp03
-            // 
-            this.txtExp03.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.txtExp03.Location = new System.Drawing.Point(13, 109);
-            this.txtExp03.Name = "txtExp03";
-            this.txtExp03.Size = new System.Drawing.Size(221, 10);
-            this.txtExp03.TabIndex = 35;
-            this.txtExp03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtResult02
-            // 
-            this.txtResult02.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.txtResult02.Location = new System.Drawing.Point(6, 76);
-            this.txtResult02.Name = "txtResult02";
-            this.txtResult02.Size = new System.Drawing.Size(236, 23);
-            this.txtResult02.TabIndex = 38;
-            this.txtResult02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtExp02
-            // 
-            this.txtExp02.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.txtExp02.Location = new System.Drawing.Point(11, 66);
-            this.txtExp02.Name = "txtExp02";
-            this.txtExp02.Size = new System.Drawing.Size(221, 10);
-            this.txtExp02.TabIndex = 37;
-            this.txtExp02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtListCount
             // 
