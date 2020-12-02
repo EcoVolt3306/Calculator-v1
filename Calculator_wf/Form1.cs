@@ -37,7 +37,8 @@ namespace Calculator_wf
                 txtMemExp.TabIndex = 33;
                 txtMemExp.AutoSize = false;
                 txtMemExp.Text = "00000000" + i;
-                actMemory.Controls.Add(txtMemExp);
+                //actMemory.Controls.Add("{0},{1}", dicList.Keys, dicList.Values);
+
 
                 this.Controls.Add(txtMemExp);
 
@@ -188,7 +189,15 @@ namespace Calculator_wf
                 txtExp.Text = "";
                 resultCount = false;    
             }
-                
+
+            // 이미 다른 연산자가 존재할 경우 처리
+            if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && operand2 == "")
+            {
+                operator1 = 1;
+
+                return;
+            }
+
             if (operand1 == null)
             {
                 operand1 = temp;        // 피연산자1에 값을 저장
@@ -225,6 +234,12 @@ namespace Calculator_wf
             {
                 txtExp.Text = "";
                 resultCount = false;
+            }
+
+            // 이미 다른 연산자가 존재할 경우 처리
+            if ((operand2 == null && operator1 != 0) || (operand3 == null && operator2 != 0))
+            {
+                return;
             }
 
             if (operand1 == null)
@@ -265,6 +280,12 @@ namespace Calculator_wf
                 resultCount = false;
             }
 
+            // 이미 다른 연산자가 존재할 경우 처리
+            if ((operand2 == null && operator1 != 0) || (operand3 == null && operator2 != 0))
+            {
+                return;
+            }
+
             if (operand1 == null)
             {
                 operand1 = temp;        // 피연산자1에 값을 저장
@@ -300,6 +321,12 @@ namespace Calculator_wf
             {
                 txtExp.Text = "";
                 resultCount = false;
+            }
+
+            // 이미 다른 연산자가 존재할 경우 처리
+            if ((operand2 == null && operator1 != 0) || (operand3 == null && operator2 != 0))
+            {
+                return;
             }
 
             if (operand1 == null)
