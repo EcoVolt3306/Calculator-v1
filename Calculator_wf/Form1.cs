@@ -127,7 +127,7 @@ namespace Calculator_wf
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if(temp != null)
+            if (temp != null)
             {
                 temp = temp.Remove(temp.Length - 1);
                 txtResult.Text = temp.ToString();
@@ -136,8 +136,34 @@ namespace Calculator_wf
                     txtResult.Text = "0";
                     temp = null;
                 }
-            } 
+            }
 
+            // 합산 후 눌리면 초기화
+            if (resultCount == true)
+            {
+                temp = null;
+                txtExp.Text = "";
+                resultCount = false;
+            }
+        }
+
+        private void buttonCE_Click(object sender, EventArgs e)
+        {
+            // CE 버튼
+            if(temp != null)
+            {
+                temp = null;
+                txtResult.Text = "0";
+            }
+
+            // 합산 후 눌리면 초기화
+            if (resultCount == true)
+            {
+                temp = null;
+                txtExp.Text = "";
+                txtResult.Text = "0";
+                resultCount = false;
+            }
         }
 
         private void buttonPlus_Click(object sender, EventArgs e)
@@ -292,7 +318,7 @@ namespace Calculator_wf
         private void buttonC_Click(object sender, EventArgs e)
         {
             // Clear : 초기화
-            temp = "";
+            temp = null;
             txtExp.Text = "";
             txtResult.Text = "0";
             operand1 = null;

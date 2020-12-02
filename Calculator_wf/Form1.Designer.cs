@@ -94,6 +94,7 @@ namespace Calculator_wf
             this.buttonCE.TabIndex = 0;
             this.buttonCE.Text = "CE";
             this.buttonCE.UseVisualStyleBackColor = false;
+            this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
             // 
             // buttonC
             // 
