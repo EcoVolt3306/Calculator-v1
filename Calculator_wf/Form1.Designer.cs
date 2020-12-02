@@ -302,6 +302,7 @@ namespace Calculator_wf
             this.buttonPM.TabIndex = 16;
             this.buttonPM.Text = "±";
             this.buttonPM.UseVisualStyleBackColor = false;
+            this.buttonPM.Click += new System.EventHandler(this.buttonPM_Click);
             // 
             // buttonNum0
             // 

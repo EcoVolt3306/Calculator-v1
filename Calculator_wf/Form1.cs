@@ -165,6 +165,17 @@ namespace Calculator_wf
                 resultCount = false;
             }
         }
+        private void buttonPM_Click(object sender, EventArgs e)
+        {
+            // 플러스 마이너스 기호 버튼
+
+            if(temp != null)
+            {
+                double pm = double.Parse(temp);
+                temp = (-pm).ToString();
+                txtResult.Text = temp;
+            }
+        }
 
         private void buttonPlus_Click(object sender, EventArgs e)
         {
@@ -334,8 +345,6 @@ namespace Calculator_wf
             label3.Text = null;
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
-
-
         }
 
         /// ///////////////////////////////////////////////////////////////////////
