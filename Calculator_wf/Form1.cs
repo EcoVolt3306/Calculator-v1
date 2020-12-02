@@ -11,9 +11,9 @@ namespace Calculator_wf
         string temp;    // 임시
         double Result;  // 결과값
 
-        string[,] historyValue = new string[5,2];    // 2차원 배열 = 계산 기록
+        string[,] historyValue = new string[20,2];    // 2차원 배열 = 계산 기록
 
-        int listCount = 0;  // 계산 기록 카운트 횟수
+        int listCount = 1;  // 계산 기록 카운트 횟수
         Boolean resultCount = false;    // = 버튼 누른 횟수
 
         public Frame()
@@ -291,6 +291,16 @@ namespace Calculator_wf
                 }
             }
 
+            // 피연산자 비존재할 경우 오류 방지
+            if (operator1 != null && operand2 == null)
+            {
+                operand2 = operand1;
+            } else if (operator2 != null && operand3 == null)
+            {
+                operand3 = operand2;
+                // 오류 방지는 할 수 있으나, 실제 계산기 결과랑 다름(추후 수정예정)
+            }
+
             // 첫번째 연산자 조건문
             if (operator1 == 1)
             {
@@ -339,32 +349,91 @@ namespace Calculator_wf
                 txtResult.Text = Result.ToString();
             }
 
-            
+
+
+
+
+
+            if (listCount == 1) // 맨 처음엔...
+            {
+                historyValue[0, 0] = txtExp.Text;
+                historyValue[0, 1] = txtResult.Text;
+
+            } else if (listCount > 1)   // 기록 옮기자!
+            {
+                for (int i = listCount; i > 0; i--)
+                {
+                    historyValue[i-1, 0] = historyValue[i - 1, 0];
+                    historyValue[i-1, 1] = historyValue[i - 1, 1];
+
+                    if (i == 1)
+                    {
+                        historyValue[0, 0] = txtExp.Text;
+                        historyValue[0, 1] = txtResult.Text;
+                    }
+
+                    //historyValue[1, 0] = historyValue[0, 0];
+                    //historyValue[1, 1] = historyValue[0, 1];
+                    //historyValue[0, 0] = txtExp.Text;
+                    //historyValue[0, 1] = txtResult.Text;
+                }
+            }
+
+            listCount++;    // = 카운트 횟수 1 증가
+
+            //historyValue[0, 0] = txtExp.Text;
+            //historyValue[0, 1] = txtResult.Text;
 
             // 기록에도 저장
             switch (listCount)
             {
-                case 0:
                 case 1:
+                    //historyValue[0, 0] = txtExp.Text;
+                    //historyValue[0, 1] = txtResult.Text;
+                    break;
                 case 2:
+                    //historyValue[1, 0] = historyValue[0, 0];
+                    //historyValue[1, 1] = historyValue[0, 1];
+
+                    //for(int i=listCount; i>=listCount; i--)
+                    //{
+                    //    historyValue[i, 0] = historyValue[listCount - i, 0];
+                    //    historyValue[i, 1] = historyValue[listCount - i, 1];
+                    //}
+
+                    //historyValue[0, 0] = txtExp.Text;
+                    //historyValue[0, 1] = txtResult.Text;
+                    break;
                 case 3:
+                    //historyValue[2, 0] = historyValue[1, 0];
+                    //historyValue[2, 1] = historyValue[1, 1];
+                    //historyValue[1, 0] = historyValue[0, 0];
+                    //historyValue[1, 1] = historyValue[0, 1];
+
+
+                    break;
                 case 4:
-                    for(int i=0; i<=listCount; i++)
-                    {
-                        historyValue[listCount, listCount] = txtExp.Text;           //[0,0]
-                        historyValue[listCount, listCount + 1] = txtResult.Text;    //[0,1]
-
-                        
-                    }
-
-                    
+                    //historyValue[3, 0] = historyValue[2, 0];
+                    //historyValue[3, 1] = historyValue[2, 1];
+                    //historyValue[2, 0] = historyValue[1, 0];
+                    //historyValue[2, 1] = historyValue[1, 1];
+                    //historyValue[1, 0] = historyValue[0, 0];
+                    //historyValue[1, 1] = historyValue[0, 1];
+                case 5:
                     break;
             }
 
-            listCount++;    // = 카운트 횟수 1 증가
-            txtListCount.Text = listCount.ToString();   // 디버깅
-
-
+            // 계산 기록에 표시
+            txtExp01.Text = historyValue[0, 0];
+            txtExp02.Text = historyValue[1, 0];
+            txtExp03.Text = historyValue[2, 0];
+            txtExp04.Text = historyValue[3, 0];
+            txtExp05.Text = historyValue[4, 0];
+            txtResult01.Text = historyValue[0, 1];
+            txtResult02.Text = historyValue[1, 1];
+            txtResult03.Text = historyValue[2, 1];
+            txtResult04.Text = historyValue[3, 1];
+            txtResult05.Text = historyValue[4, 1];
 
 
             // 디버깅
@@ -373,6 +442,7 @@ namespace Calculator_wf
             label3.Text = operand3;
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
+            txtListCount.Text = listCount.ToString();   // 디버깅
 
             // 초기화
             temp = "";
