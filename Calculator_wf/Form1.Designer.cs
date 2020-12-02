@@ -71,13 +71,13 @@ namespace Calculator_wf
             this.txtResult05 = new System.Windows.Forms.Label();
             this.txtExp05 = new System.Windows.Forms.Label();
             this.actMemory = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtListCount = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.actList.SuspendLayout();
             this.actMemory.SuspendLayout();
@@ -119,6 +119,7 @@ namespace Calculator_wf
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "◀";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonDivision
             // 
@@ -564,6 +565,46 @@ namespace Calculator_wf
             this.actMemory.Text = "저장 기록(20)";
             this.actMemory.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.label12.Location = new System.Drawing.Point(6, 64);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(220, 23);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "0000";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.label11.Location = new System.Drawing.Point(20, 52);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(205, 10);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "00000";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.label10.Location = new System.Drawing.Point(6, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(220, 23);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "0000";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.label9.Location = new System.Drawing.Point(20, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(205, 10);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "00000";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
@@ -592,46 +633,6 @@ namespace Calculator_wf
             this.txtListCount.Size = new System.Drawing.Size(70, 12);
             this.txtListCount.TabIndex = 38;
             this.txtListCount.Text = "listCount(0)";
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.label9.Location = new System.Drawing.Point(20, 12);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(205, 10);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "00000";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.label10.Location = new System.Drawing.Point(6, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(220, 23);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "0000";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-            this.label11.Location = new System.Drawing.Point(20, 52);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(205, 10);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "00000";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
-            this.label12.Location = new System.Drawing.Point(6, 64);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(220, 23);
-            this.label12.TabIndex = 36;
-            this.label12.Text = "0000";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Frame
             // 

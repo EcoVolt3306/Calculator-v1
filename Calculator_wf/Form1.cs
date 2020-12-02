@@ -13,7 +13,7 @@ namespace Calculator_wf
         string temp;    // 임시
         double Result;  // 결과값
 
-        string[,] historyValue = new string[20,2];    // 2차원 배열 = 계산 기록
+        string[,] historyValue = new string[100,202];    // 2차원 배열 = 계산 기록
 
         int listCount = 1;  // 계산 기록 카운트 횟수
         Boolean resultCount = false;    // = 버튼 누른 횟수
@@ -24,11 +24,10 @@ namespace Calculator_wf
         {
             InitializeComponent();
 
-            Label txtMemExp = new Label();
-            // 저장 기록에 Label 추가
+            // 저장 기록에 Label 20개 추가
             for (int i = 1; i <= 20; i++)
             {
-                txtMemExp = new Label();
+                Label txtMemExp = new Label();
                 txtMemExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
                 txtMemExp.Location = new Point(20, i * 40);
                 txtMemExp.Name = "txtMemExp" + i;
@@ -37,7 +36,7 @@ namespace Calculator_wf
                 txtMemExp.TabIndex = 33;
                 txtMemExp.AutoSize = false;
                 txtMemExp.Text = "00000000" + i;
-                actMemory.Controls.Add(txtMemExp);
+                //actMemory.Controls.Add(txtMemExp);
 
                 this.Controls.Add(txtMemExp);
 
@@ -49,7 +48,6 @@ namespace Calculator_wf
                 Console.WriteLine(string.Format("{0}, {1}", kvp.Key, kvp.Value.Text));
             }
 
-            txtMemExp.Text = "dd";
         }
 
         private void buttonNum1_Click(object sender, EventArgs e)
@@ -124,6 +122,22 @@ namespace Calculator_wf
         {
             temp += ".";
             txtResult.Text = temp.ToString();
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if(temp != null)
+            {
+                temp = temp.Remove(temp.Length - 1);
+                txtResult.Text = temp.ToString();
+                if(txtResult.Text == "")
+                {
+                    txtResult.Text = "0";
+                    temp = null;
+                }
+            } 
+
         }
 
         private void buttonPlus_Click(object sender, EventArgs e)
@@ -431,7 +445,7 @@ namespace Calculator_wf
             txtListCount.Text = listCount.ToString();   // 디버깅
 
             // 초기화
-            temp = "";
+            temp = null;
             operand1 = null;
             operand2 = null;
             operand3 = null;
