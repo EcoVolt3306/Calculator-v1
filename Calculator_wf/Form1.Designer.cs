@@ -71,9 +71,16 @@ namespace Calculator_wf
             this.txtResult05 = new System.Windows.Forms.Label();
             this.txtExp05 = new System.Windows.Forms.Label();
             this.actMemory = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtListCount = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.actList.SuspendLayout();
+            this.actMemory.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonCE
@@ -460,7 +467,7 @@ namespace Calculator_wf
             this.actList.Padding = new System.Windows.Forms.Padding(3);
             this.actList.Size = new System.Drawing.Size(248, 256);
             this.actList.TabIndex = 0;
-            this.actList.Text = "계산 기록";
+            this.actList.Text = "계산 기록(5)";
             this.actList.UseVisualStyleBackColor = true;
             this.actList.Click += new System.EventHandler(this.tabPage1_Click);
             // 
@@ -540,14 +547,42 @@ namespace Calculator_wf
             // 
             // actMemory
             // 
+            this.actMemory.AutoScroll = true;
+            this.actMemory.AutoScrollMinSize = new System.Drawing.Size(0, 2000);
+            this.actMemory.Controls.Add(this.label12);
+            this.actMemory.Controls.Add(this.label11);
+            this.actMemory.Controls.Add(this.label10);
+            this.actMemory.Controls.Add(this.label9);
+            this.actMemory.Controls.Add(this.label7);
+            this.actMemory.Controls.Add(this.label8);
             this.actMemory.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.actMemory.Location = new System.Drawing.Point(4, 22);
             this.actMemory.Name = "actMemory";
             this.actMemory.Padding = new System.Windows.Forms.Padding(3);
             this.actMemory.Size = new System.Drawing.Size(248, 256);
             this.actMemory.TabIndex = 1;
-            this.actMemory.Text = "저장 기록";
+            this.actMemory.Text = "저장 기록(20)";
             this.actMemory.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.label7.Location = new System.Drawing.Point(20, 230);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(205, 10);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "00000";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.label8.Location = new System.Drawing.Point(9, 240);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(220, 23);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "0000";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtListCount
             // 
@@ -557,6 +592,46 @@ namespace Calculator_wf
             this.txtListCount.Size = new System.Drawing.Size(70, 12);
             this.txtListCount.TabIndex = 38;
             this.txtListCount.Text = "listCount(0)";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.label9.Location = new System.Drawing.Point(20, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(205, 10);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "00000";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.label10.Location = new System.Drawing.Point(6, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(220, 23);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "0000";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+            this.label11.Location = new System.Drawing.Point(20, 52);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(205, 10);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "00000";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("넥슨Lv2고딕", 14F);
+            this.label12.Location = new System.Drawing.Point(6, 64);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(220, 23);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "0000";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Frame
             // 
@@ -600,6 +675,7 @@ namespace Calculator_wf
             this.Load += new System.EventHandler(this.Frame_Load);
             this.tabControl1.ResumeLayout(false);
             this.actList.ResumeLayout(false);
+            this.actMemory.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -649,6 +725,12 @@ namespace Calculator_wf
         private System.Windows.Forms.Label txtResult05;
         private System.Windows.Forms.Label txtExp05;
         private System.Windows.Forms.Label txtListCount;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }
 

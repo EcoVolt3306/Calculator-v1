@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Calculator_wf
@@ -16,9 +18,38 @@ namespace Calculator_wf
         int listCount = 1;  // 계산 기록 카운트 횟수
         Boolean resultCount = false;    // = 버튼 누른 횟수
 
+        Dictionary<int, Label> dicList = new Dictionary<int, Label>();
+
         public Frame()
         {
             InitializeComponent();
+
+            Label txtMemExp = new Label();
+            // 저장 기록에 Label 추가
+            for (int i = 1; i <= 20; i++)
+            {
+                txtMemExp = new Label();
+                txtMemExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+                txtMemExp.Location = new Point(20, i * 40);
+                txtMemExp.Name = "txtMemExp" + i;
+                txtMemExp.Size = new System.Drawing.Size(205, 10);
+                txtMemExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                txtMemExp.TabIndex = 33;
+                txtMemExp.AutoSize = false;
+                txtMemExp.Text = "00000000" + i;
+                actMemory.Controls.Add(txtMemExp);
+
+                this.Controls.Add(txtMemExp);
+
+                this.dicList.Add(i, txtMemExp);
+            }
+
+            foreach (var kvp in this.dicList)
+            {
+                Console.WriteLine(string.Format("{0}, {1}", kvp.Key, kvp.Value.Text));
+            }
+
+            txtMemExp.Text = "dd";
         }
 
         private void buttonNum1_Click(object sender, EventArgs e)
@@ -358,7 +389,6 @@ namespace Calculator_wf
             {
                 historyValue[0, 0] = txtExp.Text;
                 historyValue[0, 1] = txtResult.Text;
-
             } else if (listCount > 1)   // 기록 옮기자!
             {
                 for (int i = listCount-1; i >= 0; i--)
@@ -457,6 +487,11 @@ namespace Calculator_wf
         }
 
         private void txtResult03_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
 
         }
