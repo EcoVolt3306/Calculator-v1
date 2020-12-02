@@ -353,75 +353,31 @@ namespace Calculator_wf
 
 
 
-
-            if (listCount == 1) // 맨 처음엔...
+            // 계산 기록에 저장
+            if (listCount == 1) // 최초 1회
             {
                 historyValue[0, 0] = txtExp.Text;
                 historyValue[0, 1] = txtResult.Text;
 
             } else if (listCount > 1)   // 기록 옮기자!
             {
-                for (int i = listCount; i > 0; i--)
+                for (int i = listCount-1; i >= 0; i--)
                 {
-                    historyValue[i-1, 0] = historyValue[i - 1, 0];
-                    historyValue[i-1, 1] = historyValue[i - 1, 1];
-
-                    if (i == 1)
+                    if(i != 0)
+                    {
+                        historyValue[i, 0] = historyValue[i - 1, 0];
+                        historyValue[i, 1] = historyValue[i - 1, 1];
+                    } else if (i == 0)                                      // 마지막 처리
                     {
                         historyValue[0, 0] = txtExp.Text;
                         historyValue[0, 1] = txtResult.Text;
                     }
-
-                    //historyValue[1, 0] = historyValue[0, 0];
-                    //historyValue[1, 1] = historyValue[0, 1];
-                    //historyValue[0, 0] = txtExp.Text;
-                    //historyValue[0, 1] = txtResult.Text;
                 }
             }
-
             listCount++;    // = 카운트 횟수 1 증가
 
-            //historyValue[0, 0] = txtExp.Text;
-            //historyValue[0, 1] = txtResult.Text;
-
-            // 기록에도 저장
-            switch (listCount)
-            {
-                case 1:
-                    //historyValue[0, 0] = txtExp.Text;
-                    //historyValue[0, 1] = txtResult.Text;
-                    break;
-                case 2:
-                    //historyValue[1, 0] = historyValue[0, 0];
-                    //historyValue[1, 1] = historyValue[0, 1];
-
-                    //for(int i=listCount; i>=listCount; i--)
-                    //{
-                    //    historyValue[i, 0] = historyValue[listCount - i, 0];
-                    //    historyValue[i, 1] = historyValue[listCount - i, 1];
-                    //}
-
-                    //historyValue[0, 0] = txtExp.Text;
-                    //historyValue[0, 1] = txtResult.Text;
-                    break;
-                case 3:
-                    //historyValue[2, 0] = historyValue[1, 0];
-                    //historyValue[2, 1] = historyValue[1, 1];
-                    //historyValue[1, 0] = historyValue[0, 0];
-                    //historyValue[1, 1] = historyValue[0, 1];
 
 
-                    break;
-                case 4:
-                    //historyValue[3, 0] = historyValue[2, 0];
-                    //historyValue[3, 1] = historyValue[2, 1];
-                    //historyValue[2, 0] = historyValue[1, 0];
-                    //historyValue[2, 1] = historyValue[1, 1];
-                    //historyValue[1, 0] = historyValue[0, 0];
-                    //historyValue[1, 1] = historyValue[0, 1];
-                case 5:
-                    break;
-            }
 
             // 계산 기록에 표시
             txtExp01.Text = historyValue[0, 0];
