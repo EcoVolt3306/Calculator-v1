@@ -28,19 +28,19 @@ namespace Calculator_wf
             // 저장 기록에 Label 20개 추가
             for (int i = 1; i <= 20; i++)
             {
-                Label txtMemExp = new Label();
-                txtMemExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-                txtMemExp.Location = new Point(20, i * 40);
-                txtMemExp.Name = "txtMemExp" + i;
-                txtMemExp.Size = new System.Drawing.Size(205, 10);
-                txtMemExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                txtMemExp.TabIndex = 33;
-                txtMemExp.AutoSize = false;
-                txtMemExp.Text = "00000000" + i;
-                actMemory.Controls.Add(txtMemExp);
+                Label MemoryValue = new Label();
+                MemoryValue.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+                MemoryValue.Location = new Point(20, i * 40);
+                MemoryValue.Name = "MemoryValue" + i;
+                MemoryValue.Size = new System.Drawing.Size(205, 10);
+                MemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                MemoryValue.TabIndex = 33;
+                MemoryValue.AutoSize = false;
+                MemoryValue.Text = "xxxx";
+                actMemory.Controls.Add(MemoryValue);
 
-                // txtMemExp를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
-                this.dicList.Add(i, txtMemExp);
+                // MemoryValue를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
+                this.dicList.Add(i, MemoryValue);
             }
 
             // 딕셔너리를 통해 접근
@@ -572,12 +572,17 @@ namespace Calculator_wf
 
 
 
-
+            
             // 계산 기록에 저장
             if (listCount == 1) // 최초 1회
             {
                 historyValue[0, 0] = txtExp.Text;
                 historyValue[0, 1] = txtResult.Text;
+
+                Label qwe = dicList[1];
+
+                Console.WriteLine("{0}", qwe.Text);
+
             } else if (listCount > 1)   // 기록 옮기자!
             {
                 for (int i = listCount-1; i >= 0; i--)

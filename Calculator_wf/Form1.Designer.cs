@@ -544,7 +544,7 @@ namespace Calculator_wf
             // actMemory
             // 
             this.actMemory.AutoScroll = true;
-            this.actMemory.AutoScrollMinSize = new System.Drawing.Size(0, 2000);
+            this.actMemory.AutoScrollMinSize = new System.Drawing.Size(0, 1000);
             this.actMemory.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.actMemory.Location = new System.Drawing.Point(4, 22);
             this.actMemory.Name = "actMemory";
@@ -561,7 +561,7 @@ namespace Calculator_wf
             this.txtListCount.Name = "txtListCount";
             this.txtListCount.Size = new System.Drawing.Size(70, 12);
             this.txtListCount.TabIndex = 38;
-            this.txtListCount.Text = "listCount(0)";
+            this.txtListCount.Text = "listCount(1)";
             // 
             // Frame
             // 
