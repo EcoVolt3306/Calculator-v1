@@ -579,11 +579,17 @@ namespace Calculator_wf
                 historyValue[0, 0] = txtExp.Text;
                 historyValue[0, 1] = txtResult.Text;
 
+                // 우아아아아아
                 Label qwe = dicList[1];
+                qwe.Text = "dsdads";
+                dicList[1] = qwe;
 
                 Console.WriteLine("{0}", qwe.Text);
+                Console.WriteLine(dicList[1]);
+                // 우아아아아아
 
-            } else if (listCount > 1)   // 기록 옮기자!
+            }
+            else if (listCount > 1)   // 기록 옮기자!
             {
                 for (int i = listCount-1; i >= 0; i--)
                 {
