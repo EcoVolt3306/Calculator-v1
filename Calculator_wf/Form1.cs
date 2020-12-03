@@ -21,6 +21,7 @@ namespace Calculator_wf
 
         // 딕셔너리 생성
         Dictionary<int, Label> dicList = new Dictionary<int, Label>();
+        Dictionary<int, Label> dicResult = new Dictionary<int, Label>();
 
         public Frame()
         {
@@ -31,17 +32,31 @@ namespace Calculator_wf
             {
                 Label MemoryValue = new Label();
                 MemoryValue.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-                MemoryValue.Location = new Point(20, (i+1) * 40);
+                MemoryValue.Location = new Point(20, (i * 50) + 10);
                 MemoryValue.Name = "MemoryValue" + i;
                 MemoryValue.Size = new System.Drawing.Size(205, 10);
                 MemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                 MemoryValue.TabIndex = 33;
                 MemoryValue.AutoSize = false;
-                MemoryValue.Text = "xxxx";
+                MemoryValue.Text = "";
                 actMemory.Controls.Add(MemoryValue);
 
                 // MemoryValue를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
                 this.dicList.Add(i, MemoryValue);
+
+                Label MemoryResult = new Label();
+                MemoryResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
+                MemoryResult.Location = new Point(20, (i * 50)+10);
+                MemoryResult.Name = "MemoryResult" + i;
+                MemoryResult.Size = new System.Drawing.Size(205, 50);
+                MemoryResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                MemoryResult.TabIndex = 33;
+                MemoryResult.AutoSize = false;
+                MemoryResult.Text = "";
+                actMemory.Controls.Add(MemoryResult);
+
+                // MemoryValue를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
+                this.dicResult.Add(i, MemoryResult);
             }
 
             m = dicList[0]; // m 변수를 Label 타입으로 초기화
@@ -584,6 +599,7 @@ namespace Calculator_wf
 
                 // 저장 기록에 저장
                 dicList[0].Text = historyValue[0,0];
+                dicResult[0].Text = historyValue[0, 1];
 
             }
             else if (listCount > 1)   // 기록 옮기자!
@@ -595,11 +611,13 @@ namespace Calculator_wf
                         historyValue[i, 0] = historyValue[i - 1, 0];
                         historyValue[i, 1] = historyValue[i - 1, 1];
                         dicList[i].Text = historyValue[i, 0];   // 저장 기록
+                        dicResult[i].Text = historyValue[i, 1];
                     } else if (i == 0)                                      // 마지막 처리
                     {
                         historyValue[0, 0] = txtExp.Text;
                         historyValue[0, 1] = txtResult.Text;
                         dicList[0].Text = historyValue[0, 0];   // 저장 기록
+                        dicResult[0].Text = historyValue[0, 1];
                     }
                 }
             }
