@@ -10,7 +10,7 @@ namespace Calculator_wf
         // 연산자는 1:덧셈, 2:뺄셈, 3:곱셈, 4:나눗셈으로 정의
         int operator1, operator2;   // 연산자
         string operand1, operand2, operand3 = null;    // 피연산자
-        string temp;    // 임시
+        string temp, txtTemp;    // 임시
         double Result;  // 결과값
 
         string[,] historyValue = new string[20,2];    // 2차원 배열 = 계산 기록
@@ -191,9 +191,28 @@ namespace Calculator_wf
             }
 
             // 이미 다른 연산자가 존재할 경우 처리
-            if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && operand2 == "")
+            if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
             {
-                operator1 = 1;
+                operator2 = 1;  // 연산자 교체
+
+                // Display : 기존 연산자 제거
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                // Display : 덧셈 연산자 추가
+                txtExp.Text += " + ";
+
+                return;
+            } else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            {
+                operator1 = 1;  // 덧셈 지정
+
+                // Display : 기존 연산자 제거
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                // Display : 덧셈 연산자 추가
+                txtExp.Text += " + ";
 
                 return;
             }
@@ -216,7 +235,7 @@ namespace Calculator_wf
 
             temp += " + ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
-            temp = null;                  // temp 초기화
+            temp = "";                  // temp 초기화
 
             // 디버깅
             label1.Text = operand1;
@@ -237,8 +256,30 @@ namespace Calculator_wf
             }
 
             // 이미 다른 연산자가 존재할 경우 처리
-            if ((operand2 == null && operator1 != 0) || (operand3 == null && operator2 != 0))
+            if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
             {
+                operator2 = 2;  // 연산자 교체
+
+                // Display : 기존 연산자 제거
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                // Display : 뺄셈 연산자 추가
+                txtExp.Text += " - ";
+
+                return;
+            }
+            else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            {
+                operator1 = 2;  // 덧셈 지정
+
+                // Display : 기존 연산자 제거
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                // Display : 뺄셈 연산자 추가
+                txtExp.Text += " - ";
+
                 return;
             }
 
@@ -260,7 +301,7 @@ namespace Calculator_wf
 
             temp += " - ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
-            temp = null;                  // temp 초기화
+            temp = "";                  // temp 초기화
 
             // 디버깅
             label1.Text = operand1;
@@ -281,8 +322,30 @@ namespace Calculator_wf
             }
 
             // 이미 다른 연산자가 존재할 경우 처리
-            if ((operand2 == null && operator1 != 0) || (operand3 == null && operator2 != 0))
+            if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
             {
+                operator2 = 3;  // 연산자 교체
+
+                // Display : 기존 연산자 제거
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                // Display : 곱셈 연산자 추가
+                txtExp.Text += " x ";
+
+                return;
+            }
+            else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            {
+                operator1 = 3;  // 덧셈 지정
+
+                // Display : 기존 연산자 제거
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                // Display : 곱셈 연산자 추가
+                txtExp.Text += " x ";
+
                 return;
             }
 
@@ -303,7 +366,7 @@ namespace Calculator_wf
 
             temp += " x ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
-            temp = null;                  // temp 초기화
+            temp = "";                  // temp 초기화
 
             // 디버깅
             label1.Text = operand1;
@@ -324,8 +387,30 @@ namespace Calculator_wf
             }
 
             // 이미 다른 연산자가 존재할 경우 처리
-            if ((operand2 == null && operator1 != 0) || (operand3 == null && operator2 != 0))
+            if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
             {
+                operator2 = 4;  // 연산자 교체
+
+                // Display : 기존 연산자 제거
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                // Display : 나눗셈 연산자 추가
+                txtExp.Text += " ÷ ";
+
+                return;
+            }
+            else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            {
+                operator1 = 4;  // 덧셈 지정
+
+                // Display : 기존 연산자 제거
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                // Display : 나눗셈 연산자 추가
+                txtExp.Text += " ÷ ";
+
                 return;
             }
 
@@ -346,7 +431,7 @@ namespace Calculator_wf
 
             temp += " ÷ ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
-            temp = null;                  // temp 초기화
+            temp = "";                  // temp 초기화
 
             // 디버깅
             label1.Text = operand1;
