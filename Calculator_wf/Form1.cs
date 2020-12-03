@@ -472,15 +472,15 @@ namespace Calculator_wf
             // 마지막 피식별자 입력
             if (temp != null)
             {
-                if (operand1 == null)
+                if (operand1 == "")
                 {
                     operand1 = temp;
                 }
-                else if (operand2 == null)
+                else if (operand2 == "")
                 {
                     operand2 = temp;
                 }
-                else if (operand3 == null)
+                else if (operand3 == "")
                 {
                     operand3 = temp;
                 }
