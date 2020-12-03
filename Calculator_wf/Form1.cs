@@ -13,7 +13,8 @@ namespace Calculator_wf
         string temp, txtTemp;    // 임시
         double Result;  // 결과값
 
-        string[,] historyValue = new string[20,2];    // 2차원 배열 = 계산 기록
+        string[,] historyValue = new string[100,2];    // 2차원 배열 = 계산 기록
+        Label m;    // 저장기록에 사용할 컨트롤 자료형
 
         int listCount = 1;  // 계산 기록 카운트 횟수
         Boolean resultCount = false;    // = 버튼 누른 횟수
@@ -26,11 +27,11 @@ namespace Calculator_wf
             InitializeComponent();
 
             // 저장 기록에 Label 20개 추가
-            for (int i = 1; i <= 20; i++)
+            for (int i = 0; i < 20; i++)
             {
                 Label MemoryValue = new Label();
                 MemoryValue.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-                MemoryValue.Location = new Point(20, i * 40);
+                MemoryValue.Location = new Point(20, (i+1) * 40);
                 MemoryValue.Name = "MemoryValue" + i;
                 MemoryValue.Size = new System.Drawing.Size(205, 10);
                 MemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -42,6 +43,8 @@ namespace Calculator_wf
                 // MemoryValue를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
                 this.dicList.Add(i, MemoryValue);
             }
+
+            m = dicList[0]; // m 변수를 Label 타입으로 초기화
 
             // 딕셔너리를 통해 접근
             foreach (var kvp in this.dicList)
@@ -579,14 +582,8 @@ namespace Calculator_wf
                 historyValue[0, 0] = txtExp.Text;
                 historyValue[0, 1] = txtResult.Text;
 
-                // 우아아아아아
-                Label qwe = dicList[1];
-                qwe.Text = "dsdads";
-                dicList[1] = qwe;
-
-                Console.WriteLine("{0}", qwe.Text);
-                Console.WriteLine(dicList[1]);
-                // 우아아아아아
+                // 저장 기록에 저장
+                dicList[0].Text = historyValue[0,0];
 
             }
             else if (listCount > 1)   // 기록 옮기자!
@@ -597,10 +594,12 @@ namespace Calculator_wf
                     {
                         historyValue[i, 0] = historyValue[i - 1, 0];
                         historyValue[i, 1] = historyValue[i - 1, 1];
+                        dicList[i].Text = historyValue[i, 0];   // 저장 기록
                     } else if (i == 0)                                      // 마지막 처리
                     {
                         historyValue[0, 0] = txtExp.Text;
                         historyValue[0, 1] = txtResult.Text;
+                        dicList[0].Text = historyValue[0, 0];   // 저장 기록
                     }
                 }
             }
