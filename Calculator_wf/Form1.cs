@@ -18,7 +18,7 @@ namespace Calculator_wf
         int listCount = 1;  // 계산 기록 카운트 횟수
         Boolean resultCount = false;    // = 버튼 누른 횟수
 
-        // map1
+        // 딕셔너리 생성
         Dictionary<int, Label> dicList = new Dictionary<int, Label>();
 
         public Frame()
@@ -37,19 +37,17 @@ namespace Calculator_wf
                 txtMemExp.TabIndex = 33;
                 txtMemExp.AutoSize = false;
                 txtMemExp.Text = "00000000" + i;
-                //actMemory.Controls.Add("{0},{1}", dicList.Keys, dicList.Values);
+                actMemory.Controls.Add(txtMemExp);
 
-
-                this.Controls.Add(txtMemExp);
-
-                // map2
+                // txtMemExp를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
                 this.dicList.Add(i, txtMemExp);
             }
 
-            // map3
+            // 딕셔너리를 통해 접근
             foreach (var kvp in this.dicList)
             {
                 Console.WriteLine(string.Format("{0}, {1}", kvp.Key, kvp.Value.Text));
+
             }
 
         }
