@@ -607,7 +607,6 @@ namespace Calculator_wf
 
 
 
-
             // 계산 기록에 표시
             txtExp01.Text = historyValue[0, 0];
             txtExp02.Text = historyValue[1, 0];
