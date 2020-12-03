@@ -486,20 +486,25 @@ namespace Calculator_wf
             // Result : 최종 합산
 
             // 마지막 피식별자 입력
-            if (temp != null)
+            if (temp == "")
             {
-                if (operand1 == null)
+                if(operator2 != null && operand3 == "")
                 {
-                    operand1 = temp;
+                    operand3 = Result.ToString();
                 }
-                else if (operand2 == null)
-                {
-                    operand2 = temp;
-                }
-                else if (operand3 == null)
-                {
-                    operand3 = temp;
-                }
+
+                //if (operand1 == null)
+                //{
+                //    operand1 = temp;
+                //}
+                //else if (operand2 == null)
+                //{
+                //    operand2 = temp;
+                //}
+                //else if (operand3 == null)
+                //{
+                //    operand3 = temp;
+                //}
             }
 
             // 피연산자 비존재할 경우 오류 방지
