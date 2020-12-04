@@ -71,9 +71,6 @@ namespace Calculator_wf
                 //    Console.WriteLine(string.Format("{0}, {1}", kvp.Key, kvp.Value.Text));
                 //}
             }
-
-
-
         }
 
         private void buttonNum1_Click(object sender, EventArgs e)
@@ -550,7 +547,6 @@ namespace Calculator_wf
 
 
 
-
         private void buttonResult_Click(object sender, EventArgs e)
         {
             // Result : 최종 합산
@@ -673,7 +669,7 @@ namespace Calculator_wf
                 dicResult[0].Text = historyValue[0, 1];
 
             }
-            else if (listCount > 20)
+            else if (listCount > 20)    // 20 회 이상 초과시...
             {
                 for(int i=20; i>=1; i--)
                 {
@@ -691,28 +687,7 @@ namespace Calculator_wf
                         dicList[i - 1].Text = historyValue[i - 1, 0];   // 저장 기록
                         dicResult[i - 1].Text = historyValue[i - 1, 1];
                     }
-
                 }
-
-                //historyValue[0, 0] = txtExp.Text;
-                //historyValue[0, 1] = txtResult.Text;
-                //dicList[0].Text = historyValue[0, 0];   // 저장 기록
-                //dicResult[0].Text = historyValue[0, 1];
-                //for (int i = listCount - 1; i >= 0; i--)
-                //{
-                //    if (i > 0)
-                //    {
-                //        historyValue[i+1, 0] = historyValue[i, 0];
-                //        historyValue[i+1, 1] = historyValue[i, 1];
-                //        if (i < 20)
-                //        {
-                //            dicList[i].Text = historyValue[i, 0];   // 저장 기록
-                //            dicResult[i].Text = historyValue[i, 1];
-                //        }
-
-                //    }
-
-                //}
             }
             else if (listCount > 1)   // 기록 옮기자!
             {
