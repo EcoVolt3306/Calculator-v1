@@ -367,7 +367,6 @@ namespace Calculator_wf
             this.txtResult.TabIndex = 20;
             this.txtResult.Text = "0";
             this.txtResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtResult.Click += new System.EventHandler(this.txtResult_Click);
             // 
             // txtExp
             // 
@@ -405,7 +404,6 @@ namespace Calculator_wf
             this.label3.Size = new System.Drawing.Size(57, 12);
             this.label3.TabIndex = 26;
             this.label3.Text = "operand3";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -433,7 +431,6 @@ namespace Calculator_wf
             this.txtExp01.Size = new System.Drawing.Size(225, 10);
             this.txtExp01.TabIndex = 29;
             this.txtExp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtExp01.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtResult01
             // 
@@ -443,7 +440,6 @@ namespace Calculator_wf
             this.txtResult01.Size = new System.Drawing.Size(236, 23);
             this.txtResult01.TabIndex = 30;
             this.txtResult01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtResult01.Click += new System.EventHandler(this.resultList01_Click);
             // 
             // label6
             // 
@@ -485,7 +481,6 @@ namespace Calculator_wf
             this.actList.TabIndex = 0;
             this.actList.Text = "계산 기록(5)";
             this.actList.UseVisualStyleBackColor = true;
-            this.actList.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // txtResult02
             // 
@@ -513,7 +508,6 @@ namespace Calculator_wf
             this.txtResult03.Size = new System.Drawing.Size(236, 23);
             this.txtResult03.TabIndex = 36;
             this.txtResult03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtResult03.Click += new System.EventHandler(this.txtResult03_Click);
             // 
             // txtExp03
             // 
@@ -541,7 +535,6 @@ namespace Calculator_wf
             this.txtExp04.Size = new System.Drawing.Size(225, 10);
             this.txtExp04.TabIndex = 33;
             this.txtExp04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtExp04.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtResult05
             // 

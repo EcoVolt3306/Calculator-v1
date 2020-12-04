@@ -8,13 +8,14 @@ namespace Calculator_wf
     public partial class Frame : Form
     {
         // 연산자는 1:덧셈, 2:뺄셈, 3:곱셈, 4:나눗셈으로 정의
+        // 피연산자는 최대 3개 까지 지원 (4개 이상 연산 불가)
+
         int operator1, operator2 = 0;   // 연산자
         double operand1, operand2, operand3 = 0;    // 피연산자
         string temp, txtTemp = null;    // 임시
         double Result = 0;  // 결과값
 
         string[,] historyValue = new string[100,2];    // 2차원 배열 = 계산 기록
-        Label m;    // 저장기록에 사용할 컨트롤 자료형
 
         int listCount = 1;  // 계산 기록 카운트 횟수
         Boolean pressResult, pressOperator = false;    // = 버튼 누른 횟수
@@ -59,13 +60,13 @@ namespace Calculator_wf
                 this.dicResult.Add(i, MemoryResult);
             }
 
-            m = dicList[0]; // m 변수를 Label 타입으로 초기화
+            // 저장기록에 사용할 Controls 자료형
+            Label m = dicList[0]; // m 변수를 Label 타입으로 초기화
 
-            // 딕셔너리를 통해 접근
+            // 딕셔너리를 통해 접근 (테스트)
             foreach (var kvp in this.dicList)
             {
                 Console.WriteLine(string.Format("{0}, {1}", kvp.Key, kvp.Value.Text));
-
             }
 
         }
@@ -539,7 +540,10 @@ namespace Calculator_wf
             label5.Text = operator2.ToString();
         }
 
-        /// ///////////////////////////////////////////////////////////////////////
+
+
+
+
 
 
         private void buttonResult_Click(object sender, EventArgs e)
@@ -652,9 +656,6 @@ namespace Calculator_wf
             }
 
 
-
-
-
             // 6. 계산 기록에 저장
             if (listCount == 1) // 최초 1회
             {
@@ -687,8 +688,6 @@ namespace Calculator_wf
             }
             listCount++;    // = 카운트 횟수 1 증가
 
-
-
             // 7. 계산 기록에 표시
             txtExp01.Text = historyValue[0, 0];
             txtExp02.Text = historyValue[1, 0];
@@ -700,7 +699,6 @@ namespace Calculator_wf
             txtResult03.Text = historyValue[2, 1];
             txtResult04.Text = historyValue[3, 1];
             txtResult05.Text = historyValue[4, 1];
-
 
             // 8. 디버깅
             label1.Text = operand1.ToString();
@@ -720,75 +718,9 @@ namespace Calculator_wf
             Result = 0;
             pressResult = true;    // 결과 이력 카운트
             pressOperator = false;
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void resultList01_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtResult_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Frame_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtResult02_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void actMemory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtResult03_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtExp02_Click(object sender, EventArgs e)
         {
 
         }
