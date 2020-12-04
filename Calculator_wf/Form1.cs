@@ -8,10 +8,10 @@ namespace Calculator_wf
     public partial class Frame : Form
     {
         // 연산자는 1:덧셈, 2:뺄셈, 3:곱셈, 4:나눗셈으로 정의
-        int operator1, operator2;   // 연산자
-        string operand1, operand2, operand3 = null;    // 피연산자
-        string temp, txtTemp;    // 임시
-        double Result;  // 결과값
+        int operator1, operator2 = 0;   // 연산자
+        double operand1, operand2, operand3 = 0;    // 피연산자
+        string temp, txtTemp = null;    // 임시
+        double Result = 0;  // 결과값
 
         string[,] historyValue = new string[100,2];    // 2차원 배열 = 계산 기록
         Label m;    // 저장기록에 사용할 컨트롤 자료형
@@ -200,52 +200,53 @@ namespace Calculator_wf
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             // 덧셈 버튼 기능
+
             if(resultCount == true)    // 결과 이력 초기화
             {
                 txtExp.Text = "";
                 resultCount = false;    
             }
 
-            // 이미 다른 연산자가 존재할 경우 처리
-            if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            //// 이미 다른 연산자가 존재할 경우 처리
+            //if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            //{
+            //    operator2 = 1;  // 연산자 교체
+
+            //    // Display : 기존 연산자 제거
+            //    txtTemp = txtExp.Text;
+            //    txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+            //    txtExp.Text = txtTemp;
+            //    // Display : 덧셈 연산자 추가
+            //    txtExp.Text += " + ";
+
+            //    return;
+            //} else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            //{
+            //    operator1 = 1;  // 덧셈 지정
+
+            //    // Display : 기존 연산자 제거
+            //    txtTemp = txtExp.Text;
+            //    txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+            //    txtExp.Text = txtTemp;
+            //    // Display : 덧셈 연산자 추가
+            //    txtExp.Text += " + ";
+
+            //    return;
+            //}
+
+            if (operand1 == 0)
             {
-                operator2 = 1;  // 연산자 교체
-
-                // Display : 기존 연산자 제거
-                txtTemp = txtExp.Text;
-                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
-                txtExp.Text = txtTemp;
-                // Display : 덧셈 연산자 추가
-                txtExp.Text += " + ";
-
-                return;
-            } else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
-            {
-                operator1 = 1;  // 덧셈 지정
-
-                // Display : 기존 연산자 제거
-                txtTemp = txtExp.Text;
-                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
-                txtExp.Text = txtTemp;
-                // Display : 덧셈 연산자 추가
-                txtExp.Text += " + ";
-
-                return;
-            }
-
-            if (operand1 == null)
-            {
-                operand1 = temp;        // 피연산자1에 값을 저장
+                operand1 = double.Parse(temp);        // 피연산자1에 값을 저장
                 operator1 = 1;          // 1==Add
             }
-            else if (operand2 == null)
+            else if (operand2 == 0)
             {
-                operand2 = temp;        // 피연산자2에 값을 저장
+                operand2 = double.Parse(temp);       // 피연산자2에 값을 저장
                 operator2 = 1;          // 1==Add
             }
-            else if (operand3 == null)
+            else if (operand3 == 0)
             {
-                operand3 = temp;        // 피연산자1에 값을 저장
+                operand3 = double.Parse(temp);       // 피연산자1에 값을 저장
             }
 
 
@@ -254,9 +255,9 @@ namespace Calculator_wf
             temp = "";                  // temp 초기화
 
             // 디버깅
-            label1.Text = operand1;
-            label2.Text = operand2;
-            label3.Text = operand3;
+            label1.Text = operand1.ToString();
+            label2.Text = operand2.ToString();
+            label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
         }
@@ -299,19 +300,19 @@ namespace Calculator_wf
                 return;
             }
 
-            if (operand1 == null)
+            if (operand1 == 0)
             {
-                operand1 = temp;        // 피연산자1에 값을 저장
+                operand1 = double.Parse(temp);        // 피연산자1에 값을 저장
                 operator1 = 2;          // 2==Minus
             }
-            else if (operand2 == null)
+            else if (operand2 == 0)
             {
-                operand2 = temp;        // 피연산자2에 값을 저장
+                operand2 = double.Parse(temp);        // 피연산자2에 값을 저장
                 operator2 = 2;        // 2==Minus
             }
-            else if (operand3 == null)
+            else if (operand3 == 0)
             {
-                operand3 = temp;        // 피연산자1에 값을 저장
+                operand3 = double.Parse(temp);        // 피연산자1에 값을 저장
             }
 
 
@@ -320,9 +321,9 @@ namespace Calculator_wf
             temp = "";                  // temp 초기화
 
             // 디버깅
-            label1.Text = operand1;
-            label2.Text = operand2;
-            label3.Text = operand3;
+            label1.Text = operand1.ToString();
+            label2.Text = operand2.ToString();
+            label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
         }
@@ -365,19 +366,19 @@ namespace Calculator_wf
                 return;
             }
 
-            if (operand1 == null)
+            if (operand1 == 0)
             {
-                operand1 = temp;        // 피연산자1에 값을 저장
+                operand1 = double.Parse(temp);        // 피연산자1에 값을 저장
                 operator1 = 3;              // 3==Multiply
             }
-            else if (operand2 == null)
+            else if (operand2 == 0)
             {
-                operand2 = temp;        // 피연산자2에 값을 저장
+                operand2 = double.Parse(temp);       // 피연산자2에 값을 저장
                 operator2 = 3;               // 3==Multiply
             }
-            else if (operand3 == null)
+            else if (operand3 == 0)
             {
-                operand3 = temp;        // 피연산자1에 값을 저장
+                operand3 = double.Parse(temp);      // 피연산자1에 값을 저장
             }
 
             temp += " x ";               // temp에 + 기호 추가
@@ -385,9 +386,9 @@ namespace Calculator_wf
             temp = "";                  // temp 초기화
 
             // 디버깅
-            label1.Text = operand1;
-            label2.Text = operand2;
-            label3.Text = operand3;
+            label1.Text = operand1.ToString();
+            label2.Text = operand2.ToString();
+            label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
         }
@@ -430,19 +431,19 @@ namespace Calculator_wf
                 return;
             }
 
-            if (operand1 == null)
+            if (operand1 == 0)
             {
-                operand1 = temp;        // 피연산자1에 값을 저장
+                operand1 = double.Parse(temp);       // 피연산자1에 값을 저장
                 operator1 = 4;              // 4==Division
             }
-            else if (operand2 == null)
+            else if (operand2 == 0)
             {
-                operand2 = temp;        // 피연산자2에 값을 저장
+                operand2 = double.Parse(temp);      // 피연산자2에 값을 저장
                 operator2 = 4;               // 4==Division
             }
-            else if (operand3 == null)
+            else if (operand3 == 0)
             {
-                operand3 = temp;        // 피연산자1에 값을 저장
+                operand3 = double.Parse(temp);     // 피연산자1에 값을 저장
             }
 
             temp += " ÷ ";               // temp에 + 기호 추가
@@ -450,9 +451,9 @@ namespace Calculator_wf
             temp = "";                  // temp 초기화
 
             // 디버깅
-            label1.Text = operand1;
-            label2.Text = operand2;
-            label3.Text = operand3;
+            label1.Text = operand1.ToString();
+            label2.Text = operand2.ToString();
+            label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
         }
@@ -463,9 +464,9 @@ namespace Calculator_wf
             temp = null;
             txtExp.Text = "";
             txtResult.Text = "0";
-            operand1 = null;
-            operand2 = null;
-            operand3 = null;
+            operand1 = 0;
+            operand2 = 0;
+            operand3 = 0;
             operator1 = 0;
             operator2 = 0;
 
@@ -488,11 +489,6 @@ namespace Calculator_wf
             // 마지막 피식별자 입력
             if (temp == "")
             {
-                if(operator2 != null && operand3 == "")
-                {
-                    operand3 = Result.ToString();
-                }
-
                 //if (operand1 == null)
                 //{
                 //    operand1 = temp;
@@ -508,89 +504,89 @@ namespace Calculator_wf
             }
 
             // 피연산자 비존재할 경우 오류 방지
-            if (operator1 != null && operand2 == null)
-            {
-                operand2 = operand1;
-            } else if (operator2 != null && operand3 == null)
-            {
-                operand3 = operand2;
-                // 오류 방지는 할 수 있으나, 실제 계산기 결과랑 다름(추후 수정예정)
-            }
+            //if (operator1 != null && operand2 == null)
+            //{
+            //    operand2 = operand1;
+            //} else if (operator2 != null && operand3 == null)
+            //{
+            //    operand3 = operand2;
+            //    // 오류 방지는 할 수 있으나, 실제 계산기 결과랑 다름(추후 수정예정)
+            //}
 
-            // 첫번째 연산자 조건문
+            // 첫번째 연산자 계산 조건문
             if (operator1 == 1)
             {
-                Result = double.Parse(operand1) + double.Parse(operand2);
+                Result = operand1 + operand2;
             }
             else if (operator1 == 2)
             {
-                Result = double.Parse(operand1) - double.Parse(operand2);
+                Result = operand1 - operand2;
             }
             else if (operator1 == 3)
             {
-                Result = double.Parse(operand1) * double.Parse(operand2);
+                Result = operand1 * operand2;
             }
             else if (operator1 == 4)
             {
                 // 0으로 나누려고 시도하는 경우 처리
-                if ((operand3 == "0" || operand2 == "0"))
+                if (operand2 == 0)
                 {
                     txtResult.Text = "0 으로 나눌 수 없습니다.";
                     temp = null;
-                    operand1 = null;
-                    operand2 = null;
-                    operand3 = null;
+                    operand1 = 0;
+                    operand2 = 0;
+                    operand3 = 0;
                     operator1 = 0;
                     operator2 = 0;
                     resultCount = true;    // 결과 이력 카운트
                     return;
                 }
 
-                Result = double.Parse(operand1) / double.Parse(operand2);
+                Result = operand1 / operand2;
             }
 
-            // 두번째 연산자 조건문
+            // 두번째 연산자 계산 조건문
             if (operator2 == 1)
             {
-                Result += double.Parse(operand3);
+                Result += operand2;
             }
             else if (operator2 == 2)
             {
-                Result -= double.Parse(operand3);
+                Result -= operand2;
             }
             else if (operator2 == 3)
             {
-                Result *= double.Parse(operand3);
+                Result *= operand2;
             }
             else if (operator2 == 4)
             {
                 // 0으로 나누려고 시도하는 경우 처리
-                if ((operand3 == "0" || operand2 == "0"))
+                if (operand3 == 0)
                 {
                     txtResult.Text = "0 으로 나눌 수 없습니다.";
                     temp = null;
-                    operand1 = null;
-                    operand2 = null;
-                    operand3 = null;
+                    operand1 = 0;
+                    operand2 = 0;
+                    operand3 = 0;
                     operator1 = 0;
                     operator2 = 0;
                     resultCount = true;    // 결과 이력 카운트
                     return;
                 }
-                Result /= double.Parse(operand3);
+                Result /= operand2;
             }
 
             // 피연산자 수의 따른 연산
-            if (operand3 != null)   // 3 존재의 경우
-            {
-                txtExp.Text += operand3 + " =  ";
-                txtResult.Text = Result.ToString();
-            }
-            else if (operand2 != null)    // 3 미존재의 경우
-            {
-                txtExp.Text += operand2 + " =  ";
-                txtResult.Text = Result.ToString();
-            }
+            //if (operand3 != null)   // 3 존재의 경우
+            //{
+            //    txtExp.Text += operand3 + " =  ";
+            //    txtResult.Text = Result.ToString();
+            //}
+            //else if (operand2 != null)    // 3 미존재의 경우
+            //{
+            //    txtExp.Text += operand2 + " =  ";
+            //    txtResult.Text = Result.ToString();
+            //}
 
 
 
@@ -644,18 +640,18 @@ namespace Calculator_wf
 
 
             // 디버깅
-            label1.Text = operand1;
-            label2.Text = operand2;
-            label3.Text = operand3;
+            label1.Text = operand1.ToString();
+            label2.Text = operand2.ToString();
+            label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
             txtListCount.Text = listCount.ToString();   // 디버깅
 
             // 초기화
             temp = null;
-            operand1 = null;
-            operand2 = null;
-            operand3 = null;
+            operand1 = 0;
+            operand2 = 0;
+            operand3 = 0;
             operator1 = 0;
             operator2 = 0;
             resultCount = true;    // 결과 이력 카운트
