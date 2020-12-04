@@ -17,7 +17,7 @@ namespace Calculator_wf
         Label m;    // 저장기록에 사용할 컨트롤 자료형
 
         int listCount = 1;  // 계산 기록 카운트 횟수
-        Boolean pressResult = false;    // = 버튼 누른 횟수
+        Boolean pressResult, pressOperator = false;    // = 버튼 누른 횟수
 
         // 딕셔너리 생성
         Dictionary<int, Label> dicList = new Dictionary<int, Label>();
@@ -74,54 +74,63 @@ namespace Calculator_wf
         {
             temp += "1";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum2_Click(object sender, EventArgs e)
         {
             temp += "2";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum3_Click(object sender, EventArgs e)
         {
             temp += "3";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum4_Click(object sender, EventArgs e)
         {
             temp += "4";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum5_Click(object sender, EventArgs e)
         {
             temp += "5";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum6_Click(object sender, EventArgs e)
         {
             temp += "6";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum7_Click(object sender, EventArgs e)
         {
             temp += "7";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum8_Click(object sender, EventArgs e)
         {
             temp += "8";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum9_Click(object sender, EventArgs e)
         {
             temp += "9";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
         }
 
         private void buttonNum0_Click(object sender, EventArgs e)
@@ -135,6 +144,7 @@ namespace Calculator_wf
                 temp += "0";
                 txtResult.Text = temp.ToString();
             }
+            pressOperator = false;
 
         }
 
@@ -142,6 +152,7 @@ namespace Calculator_wf
         {
             temp += ".";
             txtResult.Text = temp.ToString();
+            pressOperator = false;
 
         }
 
@@ -165,6 +176,7 @@ namespace Calculator_wf
                 txtExp.Text = "";
                 pressResult = false;
             }
+            pressOperator = false;
         }
 
         private void buttonCE_Click(object sender, EventArgs e)
@@ -184,6 +196,7 @@ namespace Calculator_wf
                 txtResult.Text = "0";
                 pressResult = false;
             }
+            pressOperator = false;
         }
 
         private void buttonPM_Click(object sender, EventArgs e)
@@ -196,11 +209,13 @@ namespace Calculator_wf
                 temp = (-pm).ToString();
                 txtResult.Text = temp;
             }
+            pressOperator = false;
         }
 
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             // 덧셈 버튼 기능
+            pressOperator = true;
 
             // 1 : pressResult 초기화
             if(pressResult == true)
@@ -275,6 +290,7 @@ namespace Calculator_wf
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             // 뺄셈 버튼 기능
+            pressOperator = true;
 
             // 1 : pressResult 초기화
             if (pressResult == true)
@@ -351,6 +367,7 @@ namespace Calculator_wf
         private void buttonMultiply_Click(object sender, EventArgs e)
         {
             // 곱셈 버튼 기능
+            pressOperator = true;
 
             // 1 : pressResult 초기화
             if (pressResult == true)
@@ -427,6 +444,7 @@ namespace Calculator_wf
         private void buttonDivision_Click(object sender, EventArgs e)
         {
             // 나눗셈 버튼 기능
+            pressOperator = true;
 
             // 1 : pressResult 초기화
             if (pressResult == true)
@@ -528,44 +546,37 @@ namespace Calculator_wf
         {
             // Result : 최종 합산
 
-
-            // 마지막 피식별자 입력
-            if (temp == "")
-            {
-                //if (operand1 == null)
-                //{
-                //    operand1 = temp;
-                //}
-                //else if (operand2 == null)
-                //{
-                //    operand2 = temp;
-                //}
-                //else if (operand3 == null)
-                //{
-                //    operand3 = temp;
-                //}
-            }
-
-            // 피연산자 비존재할 경우 오류 방지
-            //if (operator1 != null && operand2 == null)
-            //{
-            //    operand2 = operand1;
-            //} else if (operator2 != null && operand3 == null)
-            //{
-            //    operand3 = operand2;
-            //    // 오류 방지는 할 수 있으나, 실제 계산기 결과랑 다름(추후 수정예정)
-            //}
-
-            // 남은 피연산자(temp)값 적용하기
+            // 1. 남은 피연산자(temp)값 적용하기
             if (operand2 == 0 && temp != null)
             {
                 operand2 = double.Parse(temp);
-            } else if (operand3 == 0 && temp != null)
+            }
+            else if (operand3 == 0 && temp != null)
             {
                 operand3 = double.Parse(temp);
             }
 
-            // 첫번째 연산자 계산 조건문
+            // 2. 마지막 피식별자가 존재하지 않을 경우 마지막 결과값을 자동으로 입력
+            if (temp == null && pressOperator == true)
+            {
+                if(operator2 != 0)
+                {
+                    if (operator1 == 1)
+                        operand3 = operand1 + operand2;
+                    else if(operator1 == 2)
+                        operand3 = operand1 - operand2;
+                    else if (operator1 == 3)
+                        operand3 = operand1 * operand2;
+                    else if (operator1 == 4)
+                        operand3 = operand1 / operand2;
+
+                } else if (operator1 != 0)
+                {
+                    operand2 = operand1;
+                }
+            }
+
+            // 3. 첫번째 연산자 계산 조건문
             if (operator1 == 1)
             {
                 Result = operand1 + operand2;
@@ -597,7 +608,7 @@ namespace Calculator_wf
                 Result = operand1 / operand2;
             }
 
-            // 두번째 연산자 계산 조건문
+            // 4. 두번째 연산자 계산 조건문
             if (operator2 == 1)
             {
                 Result += operand3;
@@ -628,7 +639,7 @@ namespace Calculator_wf
                 Result /= operand3;
             }
 
-            //피연산자 수의 따른 연산
+            // 5. 피연산자 수의 따른 연산
             if (operand3 != 0 && operator2 != 0)   // 3 존재의 경우
             {
                 txtExp.Text += operand3 + " =  ";
@@ -644,7 +655,7 @@ namespace Calculator_wf
 
 
 
-            // 계산 기록에 저장
+            // 6. 계산 기록에 저장
             if (listCount == 1) // 최초 1회
             {
                 historyValue[0, 0] = txtExp.Text;
@@ -678,7 +689,7 @@ namespace Calculator_wf
 
 
 
-            // 계산 기록에 표시
+            // 7. 계산 기록에 표시
             txtExp01.Text = historyValue[0, 0];
             txtExp02.Text = historyValue[1, 0];
             txtExp03.Text = historyValue[2, 0];
@@ -691,7 +702,7 @@ namespace Calculator_wf
             txtResult05.Text = historyValue[4, 1];
 
 
-            // 디버깅
+            // 8. 디버깅
             label1.Text = operand1.ToString();
             label2.Text = operand2.ToString();
             label3.Text = operand3.ToString();
@@ -699,14 +710,16 @@ namespace Calculator_wf
             label5.Text = operator2.ToString();
             txtListCount.Text = listCount.ToString();   // 디버깅
 
-            // 초기화
+            // 9. 초기화
             temp = null;
             operand1 = 0;
             operand2 = 0;
             operand3 = 0;
             operator1 = 0;
             operator2 = 0;
+            Result = 0;
             pressResult = true;    // 결과 이력 카운트
+            pressOperator = false;
 
         }
 
