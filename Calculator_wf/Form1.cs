@@ -185,6 +185,7 @@ namespace Calculator_wf
                 pressResult = false;
             }
         }
+
         private void buttonPM_Click(object sender, EventArgs e)
         {
             // 플러스 마이너스 기호 버튼
@@ -201,39 +202,48 @@ namespace Calculator_wf
         {
             // 덧셈 버튼 기능
 
-            if(pressResult == true)    // 결과 이력 초기화
+            // 1 : pressResult 초기화
+            if(pressResult == true)
             {
                 txtExp.Text = "";
                 pressResult = false;    
             }
 
-            //// 이미 다른 연산자가 존재할 경우 처리
-            //if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
-            //{
-            //    operator2 = 1;  // 연산자 교체
+            // 2. 처리되지 않은 temp값 적용
+            if (temp != null && operator2 != 0 && operand3 == 0)
+            {
+                operand3 = double.Parse(temp);
+            } else if (temp != null && operator1 != 0 && operand2 == 0)
+            {
+                operand2 = double.Parse(temp);
+            }
 
-            //    // Display : 기존 연산자 제거
-            //    txtTemp = txtExp.Text;
-            //    txtTemp = txtTemp.Remove(txtTemp.Length - 3);
-            //    txtExp.Text = txtTemp;
-            //    // Display : 덧셈 연산자 추가
-            //    txtExp.Text += " + ";
+                // 3 : 연산자 존재 확인 및 변경 처리
+            if (operator2 != 0 && operand3 == 0)
+            {
+                operator2 = 1;
 
-            //    return;
-            //} else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
-            //{
-            //    operator1 = 1;  // 덧셈 지정
+                // Display : 수식 초기화
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                txtExp.Text += " + ";
 
-            //    // Display : 기존 연산자 제거
-            //    txtTemp = txtExp.Text;
-            //    txtTemp = txtTemp.Remove(txtTemp.Length - 3);
-            //    txtExp.Text = txtTemp;
-            //    // Display : 덧셈 연산자 추가
-            //    txtExp.Text += " + ";
+                return; // Add 종료
+            } else if (operator1 != 0 && operand2 == 0)
+            {
+                operator1 = 1; 
 
-            //    return;
-            //}
+                // Display : 수식 초기화
+                txtTemp = txtExp.Text;
+                txtTemp = txtTemp.Remove(txtTemp.Length - 3);
+                txtExp.Text = txtTemp;
+                txtExp.Text += " + ";
 
+                return; // Add 종료
+            }
+
+            // 4 : 연산 및 수식에 출력
             if (operator1 == 0)
             {
                 operand1 = double.Parse(temp);        // 피연산자1에 값을 저장
@@ -248,8 +258,7 @@ namespace Calculator_wf
             {
                 operand3 = double.Parse(temp);       // 피연산자1에 값을 저장
             }
-
-
+            
             temp += " + ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
             temp = null;                  // temp 초기화
@@ -260,65 +269,75 @@ namespace Calculator_wf
             label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
+            txtListCount.Text = listCount.ToString();
         }
 
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             // 뺄셈 버튼 기능
 
-            if (pressResult == true)    // 결과 이력 초기화
+            // 1 : pressResult 초기화
+            if (pressResult == true)
             {
                 txtExp.Text = "";
                 pressResult = false;
             }
 
-            // 이미 다른 연산자가 존재할 경우 처리
-            if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            // 2. 처리되지 않은 temp값 적용
+            if (temp != null && operator2 != 0 && operand3 == 0)
             {
-                operator2 = 2;  // 연산자 교체
+                operand3 = double.Parse(temp);
+            }
+            else if (temp != null && operator1 != 0 && operand2 == 0)
+            {
+                operand2 = double.Parse(temp);
+            }
 
-                // Display : 기존 연산자 제거
+            // 3 : 연산자 존재 확인 및 변경 처리
+            if (operator2 != 0 && operand3 == 0)
+            {
+                operator2 = 2;
+
+                // Display : 수식 초기화
                 txtTemp = txtExp.Text;
                 txtTemp = txtTemp.Remove(txtTemp.Length - 3);
                 txtExp.Text = txtTemp;
-                // Display : 뺄셈 연산자 추가
                 txtExp.Text += " - ";
 
-                return;
+                return; // Minus 종료
             }
-            else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            else if (operator1 != 0 && operand2 == 0)
             {
-                operator1 = 2;  // 덧셈 지정
+                operator1 = 2;
 
-                // Display : 기존 연산자 제거
+                // Display : 수식 초기화
                 txtTemp = txtExp.Text;
                 txtTemp = txtTemp.Remove(txtTemp.Length - 3);
                 txtExp.Text = txtTemp;
-                // Display : 뺄셈 연산자 추가
                 txtExp.Text += " - ";
 
-                return;
+                return; // Minus 종료
             }
 
-            if (operand1 == 0)
+            // 4 : 연산 및 수식에 출력
+            if (operator1 == 0)
             {
                 operand1 = double.Parse(temp);        // 피연산자1에 값을 저장
-                operator1 = 2;          // 2==Minus
+                operator1 = 2;
             }
-            else if (operand2 == 0)
+            else if (operator2 == 0)
             {
-                operand2 = double.Parse(temp);        // 피연산자2에 값을 저장
-                operator2 = 2;        // 2==Minus
+                operand2 = double.Parse(temp);       // 피연산자2에 값을 저장
+                operator2 = 2;
             }
-            else if (operand3 == 0)
+            else if (operator1 != 0 && operator2 != 0)
             {
-                operand3 = double.Parse(temp);        // 피연산자1에 값을 저장
+                operand3 = double.Parse(temp);       // 피연산자1에 값을 저장
             }
-
 
             temp += " - ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
-            temp = "";                  // temp 초기화
+            temp = null;                  // temp 초기화
 
             // 디버깅
             label1.Text = operand1.ToString();
@@ -326,64 +345,75 @@ namespace Calculator_wf
             label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
+            txtListCount.Text = listCount.ToString();
         }
 
         private void buttonMultiply_Click(object sender, EventArgs e)
         {
             // 곱셈 버튼 기능
 
-            if (pressResult == true)    // 결과 이력 초기화
+            // 1 : pressResult 초기화
+            if (pressResult == true)
             {
                 txtExp.Text = "";
                 pressResult = false;
             }
 
-            // 이미 다른 연산자가 존재할 경우 처리
-            if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            // 2. 처리되지 않은 temp값 적용
+            if (temp != null && operator2 != 0 && operand3 == 0)
             {
-                operator2 = 3;  // 연산자 교체
+                operand3 = double.Parse(temp);
+            }
+            else if (temp != null && operator1 != 0 && operand2 == 0)
+            {
+                operand2 = double.Parse(temp);
+            }
 
-                // Display : 기존 연산자 제거
+            // 3 : 연산자 존재 확인 및 변경 처리
+            if (operator2 != 0 && operand3 == 0)
+            {
+                operator2 = 3;
+
+                // Display : 수식 초기화
                 txtTemp = txtExp.Text;
                 txtTemp = txtTemp.Remove(txtTemp.Length - 3);
                 txtExp.Text = txtTemp;
-                // Display : 곱셈 연산자 추가
                 txtExp.Text += " x ";
 
-                return;
+                return; // Multiply 종료
             }
-            else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            else if (operator1 != 0 && operand2 == 0)
             {
-                operator1 = 3;  // 덧셈 지정
+                operator1 = 3;
 
-                // Display : 기존 연산자 제거
+                // Display : 수식 초기화
                 txtTemp = txtExp.Text;
                 txtTemp = txtTemp.Remove(txtTemp.Length - 3);
                 txtExp.Text = txtTemp;
-                // Display : 곱셈 연산자 추가
                 txtExp.Text += " x ";
 
-                return;
+                return; // Multiply 종료
             }
 
-            if (operand1 == 0)
+            // 4 : 연산 및 수식에 출력
+            if (operator1 == 0)
             {
                 operand1 = double.Parse(temp);        // 피연산자1에 값을 저장
-                operator1 = 3;              // 3==Multiply
+                operator1 = 3;
             }
-            else if (operand2 == 0)
+            else if (operator2 == 0)
             {
                 operand2 = double.Parse(temp);       // 피연산자2에 값을 저장
-                operator2 = 3;               // 3==Multiply
+                operator2 = 3;
             }
-            else if (operand3 == 0)
+            else if (operator1 != 0 && operator2 != 0)
             {
-                operand3 = double.Parse(temp);      // 피연산자1에 값을 저장
+                operand3 = double.Parse(temp);       // 피연산자1에 값을 저장
             }
 
             temp += " x ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
-            temp = "";                  // temp 초기화
+            temp = null;                  // temp 초기화
 
             // 디버깅
             label1.Text = operand1.ToString();
@@ -391,64 +421,75 @@ namespace Calculator_wf
             label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
+            txtListCount.Text = listCount.ToString();
         }
 
         private void buttonDivision_Click(object sender, EventArgs e)
         {
             // 나눗셈 버튼 기능
-            
-            if (pressResult == true)    // 결과 이력 초기화
+
+            // 1 : pressResult 초기화
+            if (pressResult == true)
             {
                 txtExp.Text = "";
                 pressResult = false;
             }
 
-            // 이미 다른 연산자가 존재할 경우 처리
-            if ((operator2 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            // 2. 처리되지 않은 temp값 적용
+            if (temp != null && operator2 != 0 && operand3 == 0)
             {
-                operator2 = 4;  // 연산자 교체
+                operand3 = double.Parse(temp);
+            }
+            else if (temp != null && operator1 != 0 && operand2 == 0)
+            {
+                operand2 = double.Parse(temp);
+            }
 
-                // Display : 기존 연산자 제거
+            // 3 : 연산자 존재 확인 및 변경 처리
+            if (operator2 != 0 && operand3 == 0)
+            {
+                operator2 = 4;
+
+                // Display : 수식 초기화
                 txtTemp = txtExp.Text;
                 txtTemp = txtTemp.Remove(txtTemp.Length - 3);
                 txtExp.Text = txtTemp;
-                // Display : 나눗셈 연산자 추가
                 txtExp.Text += " ÷ ";
 
                 return;
             }
-            else if ((operator1 == 1 || operator1 == 2 || operator1 == 3 || operator1 == 4) && temp == "")
+            else if (operator1 != 0 && operand2 == 0)
             {
-                operator1 = 4;  // 덧셈 지정
+                operator1 = 4;
 
-                // Display : 기존 연산자 제거
+                // Display : 수식 초기화
                 txtTemp = txtExp.Text;
                 txtTemp = txtTemp.Remove(txtTemp.Length - 3);
                 txtExp.Text = txtTemp;
-                // Display : 나눗셈 연산자 추가
                 txtExp.Text += " ÷ ";
 
                 return;
             }
 
-            if (operand1 == 0)
+            // 4 : 연산 및 수식에 출력
+            if (operator1 == 0)
             {
-                operand1 = double.Parse(temp);       // 피연산자1에 값을 저장
-                operator1 = 4;              // 4==Division
+                operand1 = double.Parse(temp);        // 피연산자1에 값을 저장
+                operator1 = 4; 
             }
-            else if (operand2 == 0)
+            else if (operator2 == 0)
             {
-                operand2 = double.Parse(temp);      // 피연산자2에 값을 저장
-                operator2 = 4;               // 4==Division
+                operand2 = double.Parse(temp);       // 피연산자2에 값을 저장
+                operator2 = 4;
             }
-            else if (operand3 == 0)
+            else if (operator1 != 0 && operator2 != 0)
             {
-                operand3 = double.Parse(temp);     // 피연산자1에 값을 저장
+                operand3 = double.Parse(temp);       // 피연산자1에 값을 저장
             }
 
             temp += " ÷ ";               // temp에 + 기호 추가
             txtExp.Text += temp;    // 수식값에 temp값 추가
-            temp = "";                  // temp 초기화
+            temp = null;                  // temp 초기화
 
             // 디버깅
             label1.Text = operand1.ToString();
@@ -456,6 +497,7 @@ namespace Calculator_wf
             label3.Text = operand3.ToString();
             label4.Text = operator1.ToString();
             label5.Text = operator2.ToString();
+            txtListCount.Text = listCount.ToString();
         }
 
         private void buttonC_Click(object sender, EventArgs e)
