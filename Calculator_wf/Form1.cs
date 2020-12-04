@@ -29,45 +29,50 @@ namespace Calculator_wf
             InitializeComponent();
 
             // 저장 기록에 Label 20개 추가
-            for (int i = 0; i < 20; i++)
+            if (listCount < 20)
             {
-                Label MemoryValue = new Label();
-                MemoryValue.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
-                MemoryValue.Location = new Point(20, (i * 50) + 10);
-                MemoryValue.Name = "MemoryValue" + i;
-                MemoryValue.Size = new System.Drawing.Size(205, 10);
-                MemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                MemoryValue.TabIndex = 33;
-                MemoryValue.AutoSize = false;
-                MemoryValue.Text = "";
-                actMemory.Controls.Add(MemoryValue);
+                for (int i = 0; i < 20; i++)
+                {
+                    Label MemoryValue = new Label();
+                    MemoryValue.Font = new System.Drawing.Font("넥슨Lv2고딕", 8.25F);
+                    MemoryValue.Location = new Point(20, (i * 50) + 10);
+                    MemoryValue.Name = "MemoryValue" + i;
+                    MemoryValue.Size = new System.Drawing.Size(205, 10);
+                    MemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                    MemoryValue.TabIndex = 33;
+                    MemoryValue.AutoSize = false;
+                    MemoryValue.Text = "";
+                    actMemory.Controls.Add(MemoryValue);
 
-                // MemoryValue를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
-                this.dicList.Add(i, MemoryValue);
+                    // MemoryValue를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
+                    this.dicList.Add(i, MemoryValue);
 
-                Label MemoryResult = new Label();
-                MemoryResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
-                MemoryResult.Location = new Point(20, (i * 50)+10);
-                MemoryResult.Name = "MemoryResult" + i;
-                MemoryResult.Size = new System.Drawing.Size(205, 50);
-                MemoryResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                MemoryResult.TabIndex = 33;
-                MemoryResult.AutoSize = false;
-                MemoryResult.Text = "";
-                actMemory.Controls.Add(MemoryResult);
+                    Label MemoryResult = new Label();
+                    MemoryResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 12F);
+                    MemoryResult.Location = new Point(20, (i * 50) + 10);
+                    MemoryResult.Name = "MemoryResult" + i;
+                    MemoryResult.Size = new System.Drawing.Size(205, 50);
+                    MemoryResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                    MemoryResult.TabIndex = 33;
+                    MemoryResult.AutoSize = false;
+                    MemoryResult.Text = "";
+                    actMemory.Controls.Add(MemoryResult);
 
-                // MemoryValue를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
-                this.dicResult.Add(i, MemoryResult);
+                    // MemoryValue를 쉽게 찾을 수 있도록 딕셔너리를 통해 인덱스 연결
+                    this.dicResult.Add(i, MemoryResult);
+                }
+
+                // 저장기록에 사용할 Controls 자료형
+                Label m = dicList[0]; // m 변수를 Label 타입으로 초기화
+
+                // 딕셔너리를 통해 접근 (테스트)
+                //foreach (var kvp in this.dicList)
+                //{
+                //    Console.WriteLine(string.Format("{0}, {1}", kvp.Key, kvp.Value.Text));
+                //}
             }
 
-            // 저장기록에 사용할 Controls 자료형
-            Label m = dicList[0]; // m 변수를 Label 타입으로 초기화
 
-            // 딕셔너리를 통해 접근 (테스트)
-            foreach (var kvp in this.dicList)
-            {
-                Console.WriteLine(string.Format("{0}, {1}", kvp.Key, kvp.Value.Text));
-            }
 
         }
 
@@ -657,6 +662,7 @@ namespace Calculator_wf
 
 
             // 6. 계산 기록에 저장
+            
             if (listCount == 1) // 최초 1회
             {
                 historyValue[0, 0] = txtExp.Text;
@@ -667,11 +673,52 @@ namespace Calculator_wf
                 dicResult[0].Text = historyValue[0, 1];
 
             }
+            else if (listCount > 20)
+            {
+                for(int i=20; i>=1; i--)
+                {
+                    if(i == 1)
+                    {
+                        historyValue[0, 0] = txtExp.Text;
+                        historyValue[0, 1] = txtResult.Text;
+                        dicList[0].Text = historyValue[0, 0];
+                        dicResult[0].Text = historyValue[0, 1];
+                    }
+                    else if (i > 1)
+                    {
+                        historyValue[i - 1, 0] = historyValue[i - 2, 0];
+                        historyValue[i - 1, 1] = historyValue[i - 2, 1];
+                        dicList[i - 1].Text = historyValue[i - 1, 0];   // 저장 기록
+                        dicResult[i - 1].Text = historyValue[i - 1, 1];
+                    }
+
+                }
+
+                //historyValue[0, 0] = txtExp.Text;
+                //historyValue[0, 1] = txtResult.Text;
+                //dicList[0].Text = historyValue[0, 0];   // 저장 기록
+                //dicResult[0].Text = historyValue[0, 1];
+                //for (int i = listCount - 1; i >= 0; i--)
+                //{
+                //    if (i > 0)
+                //    {
+                //        historyValue[i+1, 0] = historyValue[i, 0];
+                //        historyValue[i+1, 1] = historyValue[i, 1];
+                //        if (i < 20)
+                //        {
+                //            dicList[i].Text = historyValue[i, 0];   // 저장 기록
+                //            dicResult[i].Text = historyValue[i, 1];
+                //        }
+
+                //    }
+
+                //}
+            }
             else if (listCount > 1)   // 기록 옮기자!
             {
                 for (int i = listCount-1; i >= 0; i--)
                 {
-                    if(i != 0)
+                    if (i > 0)
                     {
                         historyValue[i, 0] = historyValue[i - 1, 0];
                         historyValue[i, 1] = historyValue[i - 1, 1];
@@ -683,7 +730,7 @@ namespace Calculator_wf
                         historyValue[0, 1] = txtResult.Text;
                         dicList[0].Text = historyValue[0, 0];   // 저장 기록
                         dicResult[0].Text = historyValue[0, 1];
-                    }
+                    } 
                 }
             }
             listCount++;    // = 카운트 횟수 1 증가
